@@ -1,0 +1,15 @@
+{
+  "variant": "archive",
+  "kicker": "HISTORICAL RECORD",
+  "title": "一张真实图片，建立事件背景",
+  "image": "assets/images/archive.jpg",
+  "badge": "1957.10.04",
+  "source": "来源：公开档案",
+  "stat1Value": "",
+  "stat1Label": "",
+  "stat2Value": "",
+  "stat2Label": "",
+  "stat3Value": "",
+  "stat3Label": "",
+  "accent": "#ffbd55"
+}

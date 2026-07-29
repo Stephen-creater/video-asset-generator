@@ -1,0 +1,80 @@
+<!doctype html>
+<html lang="zh-CN" data-composition-variables='[
+  {"id":"variant","type":"enum","label":"版式","default":"podcast","options":[{"value":"podcast","label":"封面证据"},{"value":"archive","label":"历史证据"}]},
+  {"id":"kicker","type":"string","label":"眉题","default":"SOURCE VERIFIED"},
+  {"id":"title","type":"string","label":"标题","default":"真实来源，比转述更有说服力"},
+  {"id":"image","type":"string","label":"图片","default":"assets/images/source.jpg"},
+  {"id":"badge","type":"string","label":"日期或标签","default":"2026.07.28"},
+  {"id":"source","type":"string","label":"来源","default":"来源：官方页面"},
+  {"id":"stat1Value","type":"string","label":"数据一","default":"3"},
+  {"id":"stat1Label","type":"string","label":"数据一说明","default":"位嘉宾"},
+  {"id":"stat2Value","type":"string","label":"数据二","default":"90 min"},
+  {"id":"stat2Label","type":"string","label":"数据二说明","default":"节目时长"},
+  {"id":"stat3Value","type":"string","label":"数据三","default":"1"},
+  {"id":"stat3Label","type":"string","label":"数据三说明","default":"核心议题"},
+  {"id":"accent","type":"color","label":"强调色","default":"#ffbd55"}
+]'>
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=1080,height=1920">
+  <title>真实素材证据卡</title>
+  <style>
+    @font-face{font-family:"Alibaba PuHuiTi";src:url("assets/fonts/AlibabaPuHuiTi-3-Regular.otf")}
+    @font-face{font-family:"Alibaba PuHuiTi";src:url("assets/fonts/AlibabaPuHuiTi-3-Bold.otf");font-weight:700}
+    *{box-sizing:border-box}
+    html,body{margin:0;width:1080px;height:1920px;overflow:hidden;background:#05080c;font-family:"Alibaba PuHuiTi",sans-serif}
+    #root{position:relative;width:1080px;height:1920px;overflow:hidden}
+    .clip,.stage{position:absolute;inset:0}
+    .stage{background:radial-gradient(circle at 50% 42%,color-mix(in srgb,var(--accent) 18%,#0b1118),#05080c 58%);color:#f6f8fb}
+    .safe{position:absolute;left:162px;width:756px}
+    .kicker{top:180px;color:#82dff0;font-size:22px;font-weight:700;letter-spacing:5px}
+    h1{top:245px;margin:0;font-size:76px;line-height:1.08;font-weight:700}
+    .media{position:absolute;left:162px;top:530px;width:756px;height:620px;border-radius:32px;overflow:hidden;background:#111923;box-shadow:0 30px 90px #0009}
+    .media img{display:block;width:100%;height:100%;object-fit:cover}
+    .badge{position:absolute;left:190px;top:1090px;padding:13px 24px;border-radius:12px;background:#080b10;color:var(--accent);font-size:23px;font-weight:700;letter-spacing:2px}
+    .stats{top:1210px;display:grid;grid-template-columns:repeat(3,1fr);gap:18px}
+    .stat{height:142px;border:1px solid #ffffff20;border-radius:24px;background:#101822cc;display:flex;flex-direction:column;align-items:center;justify-content:center}
+    .stat b{font-size:44px}
+    .stat span{margin-top:8px;color:#aeb9c5;font-size:20px}
+    .source{top:1410px;color:#83909d;font-size:20px;line-height:1.5}
+    #root[data-variant="podcast"] .media img{object-fit:contain}
+    #root[data-variant="archive"] .media{height:760px}
+    #root[data-variant="archive"] .stats{display:none}
+    #root[data-variant="archive"] .source{top:1395px}
+  </style>
+</head>
+<body>
+  <div id="root" data-composition-id="evidence-card" data-start="0" data-duration="8" data-width="1080" data-height="1920">
+    <section id="evidence-card-scene" class="clip" data-start="0" data-duration="8" data-track-index="1">
+      <div class="stage">
+        <div class="safe kicker" data-var-text="kicker">SOURCE VERIFIED</div>
+        <h1 class="safe" data-var-text="title">真实来源，比转述更有说服力</h1>
+        <div class="media"><img data-var-src="image" data-layout-allow-overflow src="assets/images/source.jpg" alt=""></div>
+        <div class="badge" data-var-text="badge">2026.07.28</div>
+        <div class="safe stats">
+          <div class="stat"><b data-var-text="stat1Value">3</b><span data-var-text="stat1Label">位嘉宾</span></div>
+          <div class="stat"><b data-var-text="stat2Value">90 min</b><span data-var-text="stat2Label">节目时长</span></div>
+          <div class="stat"><b data-var-text="stat3Value">1</b><span data-var-text="stat3Label">核心议题</span></div>
+        </div>
+        <div class="safe source" data-var-text="source">来源：官方页面</div>
+      </div>
+    </section>
+  </div>
+  <script src="assets/gsap.min.js"></script>
+  <script>
+    const root=document.getElementById("root");
+    const v=window.__hyperframes.getVariables();
+    root.dataset.variant=v.variant;
+    const tl=gsap.timeline({paused:true});
+    tl.from(".kicker",{opacity:0,y:-24,duration:.5,ease:"power3.out"},.08)
+      .from("h1",{opacity:0,y:55,duration:.7,ease:"power3.out"},.2)
+      .from(".media",{opacity:0,y:80,scale:.92,duration:.9,ease:"power4.out"},.65)
+      .fromTo(".media img",{scale:1.02},{scale:1.09,duration:8,ease:"none"},0)
+      .from(".badge",{opacity:0,y:20,duration:.45,ease:"power3.out"},1.25)
+      .from(".stat",{opacity:0,y:45,stagger:.14,duration:.5,ease:"power3.out"},1.45)
+      .from(".source",{opacity:0,duration:.5,ease:"none"},1.9);
+    window.__timelines=window.__timelines||{};
+    window.__timelines["evidence-card"]=tl;
+  </script>
+</body>
+</html>

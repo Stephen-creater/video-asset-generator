@@ -1,0 +1,15 @@
+{
+  "variant": "podcast",
+  "kicker": "SOURCE VERIFIED",
+  "title": "真实来源，比转述更有说服力",
+  "image": "assets/images/source.jpg",
+  "badge": "2026.07.28",
+  "source": "来源：官方页面",
+  "stat1Value": "3",
+  "stat1Label": "位嘉宾",
+  "stat2Value": "90 min",
+  "stat2Label": "节目时长",
+  "stat3Value": "1",
+  "stat3Label": "核心议题",
+  "accent": "#ffbd55"
+}

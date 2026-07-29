@@ -1,0 +1,67 @@
+<!doctype html>
+<html lang="zh-CN" data-composition-variables='[
+  {"id":"kicker","type":"string","label":"眉题","default":"FROM EVENT TO ACTION"},
+  {"id":"title","type":"string","label":"标题","default":"一次冲击，推动三步行动"},
+  {"id":"n1","type":"string","label":"节点一编号","default":"01"},
+  {"id":"t1","type":"string","label":"节点一标题","default":"问题出现"},
+  {"id":"d1","type":"string","label":"节点一说明","default":"旧判断受到事实冲击"},
+  {"id":"n2","type":"string","label":"节点二编号","default":"02"},
+  {"id":"t2","type":"string","label":"节点二标题","default":"重新评估"},
+  {"id":"d2","type":"string","label":"节点二说明","default":"战略与资源开始调整"},
+  {"id":"n3","type":"string","label":"节点三编号","default":"03"},
+  {"id":"t3","type":"string","label":"节点三标题","default":"采取行动"},
+  {"id":"d3","type":"string","label":"节点三说明","default":"新的组织与计划落地"},
+  {"id":"accent","type":"color","label":"强调色","default":"#72e6ff"}
+]'>
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=1080,height=1920">
+  <title>时间线</title>
+  <style>
+    @font-face{font-family:"Alibaba PuHuiTi";src:url("assets/fonts/AlibabaPuHuiTi-3-Regular.otf")}
+    @font-face{font-family:"Alibaba PuHuiTi";src:url("assets/fonts/AlibabaPuHuiTi-3-Bold.otf");font-weight:700}
+    *{box-sizing:border-box}
+    html,body{margin:0;width:1080px;height:1920px;overflow:hidden;background:#05080c;font-family:"Alibaba PuHuiTi",sans-serif}
+    #root{position:relative;width:1080px;height:1920px;overflow:hidden}
+    .clip,.stage{position:absolute;inset:0}
+    .stage{background:linear-gradient(180deg,#10090b,#071018 55%,#041016);color:#f5f8fb}
+    .safe{position:absolute;left:162px;width:756px}
+    .kicker{top:180px;color:var(--accent);font-size:22px;font-weight:700;letter-spacing:5px}
+    h1{top:245px;margin:0;font-size:78px;line-height:1.08;font-weight:700}
+    .rail,.fill{position:absolute;left:220px;top:650px;width:6px;height:760px;border-radius:3px}
+    .rail{background:#ffffff18}
+    .fill{background:linear-gradient(var(--accent),#ffbd55);transform-origin:top}
+    .item{position:absolute;left:190px;width:730px;height:180px}
+    .item1{top:610px}.item2{top:900px}.item3{top:1190px}
+    .node{position:absolute;left:0;top:16px;width:68px;height:68px;border-radius:50%;border:2px solid var(--accent);background:#071018;display:grid;place-items:center;color:var(--accent);font-size:20px;font-weight:700}
+    .copy{position:absolute;left:118px;top:0;width:600px}
+    .copy b{display:block;font-size:48px;line-height:1.15}
+    .copy span{display:block;margin-top:14px;color:#aab7c4;font-size:25px;line-height:1.45}
+  </style>
+</head>
+<body>
+  <div id="root" data-composition-id="timeline" data-start="0" data-duration="8" data-width="1080" data-height="1920">
+    <section id="timeline-scene" class="clip" data-start="0" data-duration="8" data-track-index="1">
+      <div class="stage">
+        <div class="safe kicker" data-var-text="kicker">FROM EVENT TO ACTION</div>
+        <h1 class="safe" data-var-text="title">一次冲击，推动三步行动</h1>
+        <div class="rail"></div><div class="fill"></div>
+        <div class="item item1"><div class="node" data-var-text="n1">01</div><div class="copy"><b data-var-text="t1">问题出现</b><span data-var-text="d1">旧判断受到事实冲击</span></div></div>
+        <div class="item item2"><div class="node" data-var-text="n2">02</div><div class="copy"><b data-var-text="t2">重新评估</b><span data-var-text="d2">战略与资源开始调整</span></div></div>
+        <div class="item item3"><div class="node" data-var-text="n3">03</div><div class="copy"><b data-var-text="t3">采取行动</b><span data-var-text="d3">新的组织与计划落地</span></div></div>
+      </div>
+    </section>
+  </div>
+  <script src="assets/gsap.min.js"></script>
+  <script>
+    const tl=gsap.timeline({paused:true});
+    tl.from(".kicker",{opacity:0,y:-24,duration:.5,ease:"power3.out"},.08)
+      .from("h1",{opacity:0,y:55,duration:.7,ease:"power3.out"},.2)
+      .from(".fill",{scaleY:0,duration:2.5,ease:"power2.inOut"},.65)
+      .from(".item",{opacity:0,x:75,stagger:.65,duration:.65,ease:"power3.out"},.9)
+      .fromTo(".rail",{opacity:.35},{opacity:.65,duration:8,ease:"none"},0);
+    window.__timelines=window.__timelines||{};
+    window.__timelines["timeline"]=tl;
+  </script>
+</body>
+</html>

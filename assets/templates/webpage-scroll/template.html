@@ -1,0 +1,53 @@
+<!doctype html>
+<html lang="zh-CN" data-composition-variables='[
+  {"id":"label","type":"string","label":"页面标签","default":"官方技术文章 · 2026.07.28"},
+  {"id":"image","type":"string","label":"网页长截图","default":"assets/images/page.png"},
+  {"id":"source","type":"string","label":"来源","default":"真实页面截图：官方技术文章"},
+  {"id":"scrollY","type":"number","label":"滚动距离","default":240,"min":0,"max":1200,"step":10,"unit":"px"},
+  {"id":"accent","type":"color","label":"强调色","default":"#72e6ff"}
+]'>
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=1080,height=1920">
+  <title>真实网页滚动</title>
+  <style>
+    @font-face{font-family:"Alibaba PuHuiTi";src:url("assets/fonts/AlibabaPuHuiTi-3-Regular.otf")}
+    @font-face{font-family:"Alibaba PuHuiTi";src:url("assets/fonts/AlibabaPuHuiTi-3-Bold.otf");font-weight:700}
+    *{box-sizing:border-box}
+    html,body{margin:0;width:1080px;height:1920px;overflow:hidden;background:#d8e0e8;font-family:"Alibaba PuHuiTi",sans-serif}
+    #root{position:relative;width:1080px;height:1920px;overflow:hidden}
+    .clip,.stage{position:absolute;inset:0}
+    .stage{background:linear-gradient(180deg,#eef3f7,#aab6c2);color:#101820}
+    .label{position:absolute;left:162px;top:130px;padding:14px 24px;border-radius:999px;background:#0b1118;color:#fff;font-size:21px;font-weight:700}
+    .window{position:absolute;left:120px;top:260px;width:840px;height:1320px;border-radius:34px;overflow:hidden;background:#fff;box-shadow:0 35px 100px #31425255}
+    .window img{display:block;width:100%;height:auto;min-height:1320px;object-fit:cover;object-position:top}
+    .source{position:absolute;left:162px;top:1655px;width:756px;color:#23313d;font-size:21px;text-align:center}
+    .progress{position:absolute;right:90px;top:300px;width:8px;height:1240px;border-radius:4px;background:#1b293522}
+    .thumb{width:8px;height:230px;border-radius:4px;background:var(--accent);transform-origin:top}
+  </style>
+</head>
+<body>
+  <div id="root" data-composition-id="webpage-scroll" data-start="0" data-duration="8" data-width="1080" data-height="1920">
+    <section id="webpage-scroll-scene" class="clip" data-start="0" data-duration="8" data-track-index="1">
+      <div class="stage">
+        <div class="label" data-var-text="label">官方技术文章 · 2026.07.28</div>
+        <div class="window"><img data-var-src="image" data-layout-allow-overflow src="assets/images/page.png" alt=""></div>
+        <div class="progress"><div class="thumb"></div></div>
+        <div class="source" data-var-text="source">真实页面截图：官方技术文章</div>
+      </div>
+    </section>
+  </div>
+  <script src="assets/gsap.min.js"></script>
+  <script>
+    const v=window.__hyperframes.getVariables();
+    const tl=gsap.timeline({paused:true});
+    tl.from(".label",{opacity:0,y:-24,duration:.5,ease:"power3.out"},.08)
+      .from(".window",{opacity:0,y:90,scale:.95,duration:.8,ease:"power4.out"},.15)
+      .to(".window img",{y:-v.scrollY,duration:7,ease:"none"},.7)
+      .to(".thumb",{y:980,duration:7,ease:"none"},.7)
+      .from(".source",{opacity:0,duration:.5,ease:"none"},.7);
+    window.__timelines=window.__timelines||{};
+    window.__timelines["webpage-scroll"]=tl;
+  </script>
+</body>
+</html>

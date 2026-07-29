@@ -2,7 +2,7 @@
 
 面向口播、文章、课程和解说视频的视觉素材导演 Skill。它帮助 AI 在动态图形、AI 生图、图文融合、真实素材和混合形式之间做选择，并把字体授权、移动端安全区、动画稳定性、批量渲染和最终成片抽帧验收设为明确的质量闸门。
 
-仓库同时提供可直接加载的 Skill 源文件和原始 `.skill` 安装包。
+仓库同时提供可直接加载的 Skill 源文件和 `.skill` 安装包。
 
 ## 它能做什么
 
@@ -11,6 +11,7 @@
 - 规划关键词、章节标题、金句和字幕之间的分工
 - 约束 1080×1920 竖屏安全区、文字容器、对比结构和动画时序
 - 指导 HyperFrames / GSAP 的确定性实现、分段渲染与抽帧验收
+- 提供真实证据、时间线、网页滚动、设问、对比和结尾钩子六类参数化模板
 - 预检中文字体、危险定位、随机动画和本地绝对路径
 - 计算中英文口播时间并生成 SRT
 - 将 VTT、ASS/SSA 和常见纯文本时间戳转换为 SRT
@@ -22,11 +23,20 @@ video-asset-generator/
 ├── README.md
 ├── SKILL.md
 ├── checksums.txt
+├── assets/
+│   └── templates/
+│       ├── comparison/
+│       ├── cta/
+│       ├── evidence-card/
+│       ├── question/
+│       ├── timeline/
+│       └── webpage-scroll/
 ├── dist/
 │   └── video-asset-generator.skill
 ├── references/
 │   ├── hyperframes-rules.md
 │   ├── quality-gates.md
+│   ├── template-catalog.md
 │   └── visual-playbook.md
 └── scripts/
     ├── calc_timing.py
@@ -40,10 +50,12 @@ video-asset-generator/
 | `references/visual-playbook.md` | 传播任务、媒介选择、构图与生图提示词手册 |
 | `references/hyperframes-rules.md` | HyperFrames / GSAP 实现约束 |
 | `references/quality-gates.md` | 渲染前、构图、动画、技术和分发验收表 |
+| `references/template-catalog.md` | 六类模板的适用边界与使用流程 |
+| `assets/templates/` | 参数化 HTML 模板和示例 JSON |
 | `scripts/preflight.py` | 扫描字体与常见布局、确定性风险 |
 | `scripts/calc_timing.py` | 根据中英文文本估算时长并生成 SRT |
 | `scripts/srt_convert.py` | 将 VTT、ASS/SSA、纯文本时间戳转换为 SRT |
-| `dist/video-asset-generator.skill` | 用户提供的原始可分发安装包 |
+| `dist/video-asset-generator.skill` | 当前源码生成的可分发安装包 |
 
 ## 安装
 
@@ -85,6 +97,21 @@ video-asset-generator/
 ```
 
 Skill 会先检查字体。含中文文字的最终成片默认要求项目内存在并自托管阿里巴巴普惠体；找不到时会阻断含字最终渲染。字体能用于成片不代表允许随 Skill 再分发，本仓库不包含任何字体文件。
+
+### 参数化模板
+
+复制一个模板目录中的 `template.html` 为项目 `index.html`，复制 `example.json` 为 `config.json`，替换文字和素材路径：
+
+```bash
+hyperframes render . \
+  --variables-file config.json \
+  --strict-variables \
+  --strict-all \
+  --quality high \
+  --output renders/sticker.mp4
+```
+
+模板不包含字体、GSAP 或业务素材；项目必须提供 `assets/fonts/`、固定版本的 `assets/gsap.min.js` 和需要的 `assets/images/`。
 
 ## 工具脚本
 
@@ -145,10 +172,10 @@ python3 scripts/srt_convert.py timestamps.txt -o output.srt
 
 ## 完整性
 
-原始 `.skill` 包的 SHA-256：
+当前 `.skill` 包的 SHA-256：
 
 ```text
-e59973775796bec6ead828dc3e37b0234683d0d74261c341962cf43d05435b2a
+b4dc0eba66e3a3ca92814874f25b0dd60e61dbbed8f5e27b8c0ce0ed435a1686
 ```
 
 可运行以下命令核验：

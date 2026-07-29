@@ -149,6 +149,12 @@ python 'scripts/preflight.py' '<素材项目目录>'
 8. **先自动检查，再抽帧检查**：不通过则只重渲染受影响段。
 9. **交付最终目录**：历史错误版本与最终成片分开，提供镜头清单和使用位置。
 
+### 参数化模板
+
+先判断新文案是否匹配 [template-catalog.md](references/template-catalog.md)。匹配时复制对应 `assets/templates/<类型>/template.html` 和 `example.json`，只替换参数与项目素材；不得复制旧案例文案、品牌素材或全部场景源码。未匹配时按本 Skill 从零设计，成功后再评估是否新增模板。
+
+模板使用 HyperFrames 原生 composition variables 和本地固定版本 GSAP。预览时在 Studio 修改参数，渲染时使用 `--variables-file config.json --strict-variables`。不得擅自切换动画运行时。
+
 ## 8. HyperFrames / GSAP
 
 实现前读取 [hyperframes-rules.md](references/hyperframes-rules.md)。核心底线：
