@@ -20,6 +20,8 @@
 
 ```text
 video-asset-generator/
+├── AGENTS.md -> CLAUDE.md
+├── CLAUDE.md
 ├── README.md
 ├── SKILL.md
 ├── checksums.txt
@@ -33,6 +35,8 @@ video-asset-generator/
 │       └── webpage-scroll/
 ├── dist/
 │   └── video-asset-generator.skill
+├── examples/
+│   └── ai-content-template-test/
 ├── references/
 │   ├── hyperframes-rules.md
 │   ├── quality-gates.md
@@ -76,6 +80,8 @@ git clone https://github.com/Stephen-creater/video-asset-generator.git \
 ```text
 video-asset-generator/
 ├── SKILL.md
+├── assets/
+│   └── templates/
 ├── references/
 └── scripts/
 ```
@@ -103,7 +109,7 @@ Skill 会先检查字体。含中文文字的最终成片默认要求项目内�
 复制一个模板目录中的 `template.html` 为项目 `index.html`，复制 `example.json` 为 `config.json`，替换文字和素材路径：
 
 ```bash
-hyperframes render . \
+npx hyperframes render . \
   --variables-file config.json \
   --strict-variables \
   --strict-all \
