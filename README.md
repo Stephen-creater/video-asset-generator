@@ -113,6 +113,8 @@ hyperframes render . \
 
 模板不包含字体、GSAP 或业务素材；项目必须提供 `assets/fonts/`、固定版本的 `assets/gsap.min.js` 和需要的 `assets/images/`。
 
+复用示例见 [`examples/ai-content-template-test/`](examples/ai-content-template-test/)。
+
 ## 工具脚本
 
 要求 Python 3.9 或更高版本，脚本仅使用 Python 标准库。

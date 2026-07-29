@@ -1,0 +1,20 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="840" height="2600" viewBox="0 0 840 2600">
+  <rect width="840" height="2600" fill="#ffffff"/>
+  <rect width="840" height="180" fill="#0b1118"/>
+  <text x="64" y="78" fill="#72e6ff" font-family="sans-serif" font-size="24" font-weight="700">VIDEO STICKER GUIDE</text>
+  <text x="64" y="132" fill="#ffffff" font-family="sans-serif" font-size="42" font-weight="700">模板适用场景与边界</text>
+  <g font-family="sans-serif">
+    <g transform="translate(64 250)"><text y="0" fill="#101820" font-size="34" font-weight="700">01 证据卡</text><text y="56" fill="#50606d" font-size="24">适用：真实人物、产品、播客、历史图片</text><text y="98" fill="#b74f3e" font-size="24">不适用：来源不明的概念图</text><path d="M0 145h712" stroke="#dce3e8"/></g>
+    <g transform="translate(64 520)"><text y="0" fill="#101820" font-size="34" font-weight="700">02 时间线</text><text y="56" fill="#50606d" font-size="24">适用：三个有先后或因果关系的节点</text><text y="98" fill="#b74f3e" font-size="24">不适用：没有顺序的并列观点</text><path d="M0 145h712" stroke="#dce3e8"/></g>
+    <g transform="translate(64 790)"><text y="0" fill="#101820" font-size="34" font-weight="700">03 网页滚动</text><text y="56" fill="#50606d" font-size="24">适用：已核验的官方文章、产品页、技术博客</text><text y="98" fill="#b74f3e" font-size="24">不适用：搜索结果页、来源不明截图</text><path d="M0 145h712" stroke="#dce3e8"/></g>
+    <g transform="translate(64 1060)"><text y="0" fill="#101820" font-size="34" font-weight="700">04 核心提问</text><text y="56" fill="#50606d" font-size="24">适用：问句、设问、核心矛盾</text><text y="98" fill="#b74f3e" font-size="24">不适用：普通陈述句</text><path d="M0 145h712" stroke="#dce3e8"/></g>
+    <g transform="translate(64 1330)"><text y="0" fill="#101820" font-size="34" font-weight="700">05 双栏对比</text><text y="56" fill="#50606d" font-size="24">适用：两种方案、前后状态、优劣差异</text><text y="98" fill="#b74f3e" font-size="24">不适用：三项以上复杂比较</text><path d="M0 145h712" stroke="#dce3e8"/></g>
+    <g transform="translate(64 1600)"><text y="0" fill="#101820" font-size="34" font-weight="700">06 结尾钩子</text><text y="56" fill="#50606d" font-size="24">适用：结尾互动、关注、评论引导</text><text y="98" fill="#b74f3e" font-size="24">不适用：中段信息解释</text><path d="M0 145h712" stroke="#dce3e8"/></g>
+  </g>
+  <rect x="64" y="1960" width="712" height="340" rx="30" fill="#eef5f7"/>
+  <text x="104" y="2040" fill="#101820" font-family="sans-serif" font-size="32" font-weight="700">复用原则</text>
+  <text x="104" y="2110" fill="#41515e" font-family="sans-serif" font-size="25">先判断信息结构，再选择模板。</text>
+  <text x="104" y="2170" fill="#41515e" font-family="sans-serif" font-size="25">只替换参数，不复制旧案例内容。</text>
+  <text x="104" y="2230" fill="#41515e" font-family="sans-serif" font-size="25">无法匹配时，从零设计并重新验收。</text>
+  <text x="64" y="2460" fill="#8594a0" font-family="sans-serif" font-size="22">模拟页面，仅用于模板滚动测试</text>
+</svg>

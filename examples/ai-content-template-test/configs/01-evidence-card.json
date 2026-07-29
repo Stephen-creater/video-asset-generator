@@ -1,0 +1,15 @@
+{
+  "variant": "podcast",
+  "kicker": "TEMPLATE LIBRARY",
+  "title": "六类视频贴纸，按内容结构调用",
+  "image": "assets/images/mock-template-library.svg",
+  "badge": "演示数据",
+  "source": "来源：本仓库模板目录",
+  "stat1Value": "6",
+  "stat1Label": "类模板",
+  "stat2Value": "1",
+  "stat2Label": "套参数",
+  "stat3Value": "8s",
+  "stat3Label": "单段时长",
+  "accent": "#72e6ff"
+}

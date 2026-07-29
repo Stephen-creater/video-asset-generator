@@ -1,0 +1,11 @@
+{
+  "kicker": "MOCK COMPARISON",
+  "title": "同一任务，两种制作方式",
+  "leftTitle": "从零制作",
+  "leftPoint1": "约 40 分钟",
+  "leftPoint2": "效果容易波动",
+  "rightTitle": "模板复用",
+  "rightPoint1": "约 5 分钟",
+  "rightPoint2": "主体结构稳定",
+  "accent": "#72e6ff"
+}
