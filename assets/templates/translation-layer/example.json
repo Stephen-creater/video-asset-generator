@@ -1,0 +1,13 @@
+{
+  "kicker": "SYSTEM / TRANSLATION",
+  "title": "一套业务逻辑",
+  "highlightTitle": "适配三种执行环境",
+  "inputLabel": "统一任务",
+  "layerLabel": "适配中间层",
+  "layerNote": "转换接口与指令",
+  "output1": "云端",
+  "output2": "本地",
+  "output3": "边缘端",
+  "footer": "适用：兼容层、中间件、协议转换、跨平台适配",
+  "accent": "#f1b64a"
+}

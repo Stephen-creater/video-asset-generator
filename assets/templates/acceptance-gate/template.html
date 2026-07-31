@@ -1,0 +1,58 @@
+<!doctype html>
+<html lang="zh-CN" data-composition-variables='[
+  {"id":"kicker","type":"string","label":"眉题","default":"DECISION / ACCEPTANCE"},
+  {"id":"title","type":"string","label":"标题上行","default":"替代是否成立"},
+  {"id":"highlightTitle","type":"string","label":"标题强调行","default":"先通过四项验收"},
+  {"id":"item1","type":"string","label":"条件一","default":"效果"},
+  {"id":"item2","type":"string","label":"条件二","default":"成本"},
+  {"id":"item3","type":"string","label":"条件三","default":"稳定性"},
+  {"id":"item4","type":"string","label":"条件四","default":"交付速度"},
+  {"id":"goalLabel","type":"string","label":"结果","default":"验收通过"},
+  {"id":"goalNote","type":"string","label":"结果说明","default":"再进入正式流程"},
+  {"id":"footer","type":"string","label":"底部说明","default":"适用：方案验收、供应商评估、上线条件"},
+  {"id":"accent","type":"color","label":"强调色","default":"#147b6a"}
+]'>
+<head>
+  <meta charset="UTF-8"><meta name="viewport" content="width=1080,height=1920"><title>验收条件</title>
+  <style>
+    @font-face{font-family:"Alibaba PuHuiTi";src:url("assets/fonts/AlibabaPuHuiTi-3-Regular.otf");font-weight:400}
+    @font-face{font-family:"Alibaba PuHuiTi";src:url("assets/fonts/AlibabaPuHuiTi-3-Bold.otf");font-weight:700}
+    *{box-sizing:border-box}html,body{margin:0;width:1080px;height:1920px;overflow:hidden;background:#f4f1e9;font-family:"Alibaba PuHuiTi",sans-serif}
+    #root,.clip,.stage{position:absolute;inset:0;width:1080px;height:1920px;overflow:hidden}.stage{color:#17221f;background:linear-gradient(145deg,#faf8f1,#ece7dc)}
+    .head{position:absolute;left:162px;top:240px;width:756px}.kicker{color:var(--accent);font-size:22px;font-weight:700;letter-spacing:5px}
+    h1{position:relative;margin:28px 0 0;width:756px;height:184px;font-size:72px;line-height:1}h1 span,h1 b{position:absolute;left:0;width:756px;height:80px;display:block}h1 span{top:0}h1 b{top:96px;color:var(--accent)}
+    .diagram{position:absolute;left:132px;top:620px;width:816px;height:620px}.checks{position:absolute;left:0;top:0;width:420px;display:grid;gap:24px}
+    .check{height:118px;border:3px solid #22332e;border-radius:22px;background:#fff;padding:0 30px;display:flex;align-items:center;justify-content:space-between;box-shadow:8px 10px 0 #17221f12;font-size:34px;font-weight:700}
+    .tick{width:42px;height:42px;border-radius:50%;display:grid;place-items:center;background:var(--accent);color:#fff;font-size:25px}
+    .routes{position:absolute;left:420px;top:56px;width:120px;height:424px}.route{position:absolute;left:0;width:120px;height:4px;background:#66746f;transform-origin:left}.r1{top:0}.r2{top:142px}.r3{top:284px}.r4{top:426px}
+    .goal{position:absolute;left:540px;top:132px;width:276px;height:276px;border-radius:50%;background:#102d27;color:#fff;border:10px solid color-mix(in srgb,var(--accent) 70%,white);display:grid;place-content:center;text-align:center;box-shadow:0 28px 65px #17342e35}
+    .goal b{font-size:42px}.goal span{margin-top:14px;color:#bde8df;font-size:22px}.footer{position:absolute;left:162px;top:1325px;width:756px;color:#53635d;font-size:23px;border-top:2px solid #b8c0bb;padding-top:22px}
+  </style>
+</head>
+<body>
+  <div id="root" data-composition-id="acceptance-gate" data-start="0" data-duration="7" data-width="1080" data-height="1920">
+    <section id="acceptance-gate-scene" class="clip" data-start="0" data-duration="7" data-track-index="1"><div class="stage">
+      <div class="head"><div class="kicker" data-var-text="kicker">DECISION / ACCEPTANCE</div><h1><span data-var-text="title">替代是否成立</span><b data-var-text="highlightTitle">先通过四项验收</b></h1></div>
+      <div class="diagram">
+        <div class="checks"><div class="check"><span data-var-text="item1">效果</span><i class="tick">✓</i></div><div class="check"><span data-var-text="item2">成本</span><i class="tick">✓</i></div><div class="check"><span data-var-text="item3">稳定性</span><i class="tick">✓</i></div><div class="check"><span data-var-text="item4">交付速度</span><i class="tick">✓</i></div></div>
+        <div class="routes"><i class="route r1"></i><i class="route r2"></i><i class="route r3"></i><i class="route r4"></i></div>
+        <div class="goal"><b data-var-text="goalLabel">验收通过</b><span data-var-text="goalNote">再进入正式流程</span></div>
+      </div>
+      <div class="footer" data-var-text="footer">适用：方案验收、供应商评估、上线条件</div>
+    </div></section>
+  </div>
+  <script src="assets/gsap.min.js"></script>
+  <script>
+    const tl=gsap.timeline({paused:true});
+    tl.from(".kicker",{y:-24,opacity:0,duration:.4,ease:"power3.out"},.08)
+      .from("h1",{x:-60,opacity:0,duration:.62,ease:"power4.out"},.2)
+      .from(".check",{x:-90,opacity:0,duration:.48,stagger:.18,ease:"power3.out"},.66)
+      .from(".tick",{scale:.2,opacity:0,duration:.3,stagger:.18,ease:"back.out(1.8)"},1.15)
+      .from(".route",{scaleX:0,duration:.45,stagger:.12,ease:"power2.out"},1.45)
+      .from(".goal",{scale:.55,opacity:0,duration:.62,ease:"back.out(1.5)"},1.95)
+      .from(".footer",{y:24,opacity:0,duration:.45,ease:"power2.out"},2.55)
+      .to(".goal",{scale:1.025,duration:.5,ease:"power1.inOut"},3.2);
+    window.__timelines=window.__timelines||{};window.__timelines["acceptance-gate"]=tl;
+  </script>
+</body>
+</html>

@@ -1,1 +1,1 @@
-383ebe1b2e6f04177647a9c3ffe1e4179d6661042eed0d34c0d34858075a7931  dist/video-asset-generator.skill
+9a59bccee597f9acaf98a8d4c1907f606b5da2349bc6d3dc8109805905bb3ca4  dist/video-asset-generator.skill

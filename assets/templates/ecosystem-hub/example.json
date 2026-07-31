@@ -1,0 +1,12 @@
+{
+  "kicker": "PLATFORM / ECOSYSTEM",
+  "title": "一个操作系统",
+  "highlightTitle": "连接四类生态资源",
+  "hubLabel": "系统核心",
+  "node1": "开发者",
+  "node2": "应用",
+  "node3": "设备",
+  "node4": "社区",
+  "footer": "适用：平台生态、基础设施依赖、中心辐射关系",
+  "accent": "#a9ec3f"
+}

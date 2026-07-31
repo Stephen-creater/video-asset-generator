@@ -1,0 +1,62 @@
+<!doctype html>
+<html lang="zh-CN" data-composition-variables='[
+  {"id":"kicker","type":"string","label":"眉题","default":"KNOWLEDGE / TRANSFER"},
+  {"id":"title","type":"string","label":"标题上行","default":"把个人经验"},
+  {"id":"highlightTitle","type":"string","label":"标题强调行","default":"变成团队可复用能力"},
+  {"id":"sourceLabel","type":"string","label":"经验来源","default":"专家经验"},
+  {"id":"knowledge1","type":"string","label":"知识一","default":"判断"},
+  {"id":"knowledge2","type":"string","label":"知识二","default":"方法"},
+  {"id":"knowledge3","type":"string","label":"知识三","default":"技巧"},
+  {"id":"aiLabel","type":"string","label":"AI 节点","default":"AI"},
+  {"id":"aiNote","type":"string","label":"AI 说明","default":"结构化提炼"},
+  {"id":"output1","type":"string","label":"输出一","default":"产品"},
+  {"id":"output2","type":"string","label":"输出二","default":"流程"},
+  {"id":"output3","type":"string","label":"输出三","default":"培训"},
+  {"id":"footer","type":"string","label":"底部说明","default":"适用：经验沉淀、知识显性化、AI 能力迁移"},
+  {"id":"accent","type":"color","label":"强调色","default":"#f2b84b"}
+]'>
+<head>
+  <meta charset="UTF-8"><meta name="viewport" content="width=1080,height=1920"><title>知识迁移</title>
+  <style>
+    @font-face{font-family:"Alibaba PuHuiTi";src:url("assets/fonts/AlibabaPuHuiTi-3-Regular.otf");font-weight:400}
+    @font-face{font-family:"Alibaba PuHuiTi";src:url("assets/fonts/AlibabaPuHuiTi-3-Bold.otf");font-weight:700}
+    *{box-sizing:border-box}html,body{margin:0;width:1080px;height:1920px;overflow:hidden;background:#080d18;font-family:"Alibaba PuHuiTi",sans-serif}
+    #root,.clip,.stage{position:absolute;inset:0;width:1080px;height:1920px;overflow:hidden}.stage{color:#f8fbff;background:radial-gradient(circle at 50% 63%,#23203a,#080d18 58%)}
+    .head{position:absolute;left:162px;top:240px;width:756px}.kicker{color:var(--accent);font-size:22px;font-weight:700;letter-spacing:5px}
+    h1{position:relative;margin:28px 0 0;width:756px;height:184px;font-size:70px;line-height:1}h1 span,h1 b{position:absolute;left:0;width:756px;height:80px;display:block}h1 span{top:0}h1 b{top:96px;color:var(--accent)}
+    .flow{position:absolute;left:120px;top:640px;width:840px;height:560px}.person{position:absolute;left:0;top:65px;width:260px;height:360px}.head-icon{position:absolute;left:70px;top:0;width:120px;height:120px;border:5px solid #dce5ff;border-radius:50%;background:#221f36;display:grid;place-items:center;color:var(--accent);font-size:26px;font-weight:700}.body-icon{position:absolute;left:37px;top:125px;width:186px;height:170px;border:5px solid #dce5ff;border-bottom:0;border-radius:96px 96px 0 0}
+    .knowledge{position:absolute;left:200px;top:20px;width:115px;display:grid;gap:16px}.chip{height:48px;border:2px solid #68748c;border-radius:10px;background:#131827;display:grid;place-items:center;font-size:21px}.arrow{position:absolute;left:315px;top:220px;width:65px;height:6px;background:#75dce3;transform-origin:left}
+    .ai{position:absolute;left:360px;top:120px;width:230px;height:230px;border-radius:50%;background:var(--accent);color:#141521;display:grid;place-content:center;text-align:center;box-shadow:0 0 70px #f2b84b55}.ai b{font-size:62px}.ai span{font-size:21px;margin-top:8px}
+    .spread{position:absolute;left:587px;top:220px;width:110px;height:6px;background:#75dce3;transform-origin:left}.outputs{position:absolute;right:0;top:34px;width:170px;display:grid;gap:36px}.output{height:112px;border:3px solid #52627a;border-radius:22px;background:#111827;display:grid;place-items:center;font-size:28px;font-weight:700}
+    .footer{position:absolute;left:162px;top:1315px;width:756px;color:#99a6bd;font-size:23px;border-top:2px solid #38445b;padding-top:22px}
+  </style>
+</head>
+<body>
+  <div id="root" data-composition-id="knowledge-transfer" data-start="0" data-duration="7" data-width="1080" data-height="1920">
+    <section id="knowledge-transfer-scene" class="clip" data-start="0" data-duration="7" data-track-index="1"><div class="stage">
+      <div class="head"><div class="kicker" data-var-text="kicker">KNOWLEDGE / TRANSFER</div><h1><span data-var-text="title">把个人经验</span><b data-var-text="highlightTitle">变成团队可复用能力</b></h1></div>
+      <div class="flow">
+        <div class="person"><div class="head-icon" data-var-text="sourceLabel">专家经验</div><div class="body-icon"></div><div class="knowledge"><span class="chip" data-var-text="knowledge1">判断</span><span class="chip" data-var-text="knowledge2">方法</span><span class="chip" data-var-text="knowledge3">技巧</span></div></div>
+        <div class="arrow"></div><div class="ai"><b data-var-text="aiLabel">AI</b><span data-var-text="aiNote">结构化提炼</span></div><div class="spread"></div>
+        <div class="outputs"><div class="output" data-var-text="output1">产品</div><div class="output" data-var-text="output2">流程</div><div class="output" data-var-text="output3">培训</div></div>
+      </div>
+      <div class="footer" data-var-text="footer">适用：经验沉淀、知识显性化、AI 能力迁移</div>
+    </div></section>
+  </div>
+  <script src="assets/gsap.min.js"></script>
+  <script>
+    const tl=gsap.timeline({paused:true});
+    tl.from(".kicker",{y:-24,opacity:0,duration:.4,ease:"power3.out"},.08)
+      .from("h1",{x:-60,opacity:0,duration:.62,ease:"power4.out"},.2)
+      .from(".person",{x:-55,opacity:0,duration:.55,ease:"power3.out"},.68)
+      .from(".chip",{x:-28,opacity:0,duration:.32,stagger:.12,ease:"power2.out"},1.08)
+      .from(".arrow",{scaleX:0,duration:.42,ease:"power2.out"},1.45)
+      .from(".ai",{scale:.55,opacity:0,duration:.58,ease:"back.out(1.5)"},1.72)
+      .from(".spread",{scaleX:0,duration:.4,ease:"power2.out"},2.15)
+      .from(".output",{x:45,opacity:0,duration:.42,stagger:.14,ease:"power3.out"},2.42)
+      .from(".footer",{y:24,opacity:0,duration:.45,ease:"power2.out"},2.98)
+      .to(".ai",{scale:1.025,duration:.5,ease:"power1.inOut"},3.35);
+    window.__timelines=window.__timelines||{};window.__timelines["knowledge-transfer"]=tl;
+  </script>
+</body>
+</html>

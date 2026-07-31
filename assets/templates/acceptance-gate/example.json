@@ -1,0 +1,13 @@
+{
+  "kicker": "DECISION / ACCEPTANCE",
+  "title": "一次工具迁移",
+  "highlightTitle": "必须同时满足四个条件",
+  "item1": "准确率",
+  "item2": "预算",
+  "item3": "运维难度",
+  "item4": "上线周期",
+  "goalLabel": "可以切换",
+  "goalNote": "进入正式迁移",
+  "footer": "适用：方案验收、供应商评估、上线条件",
+  "accent": "#176f61"
+}

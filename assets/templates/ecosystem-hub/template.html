@@ -1,0 +1,55 @@
+<!doctype html>
+<html lang="zh-CN" data-composition-variables='[
+  {"id":"kicker","type":"string","label":"眉题","default":"PLATFORM / ECOSYSTEM"},
+  {"id":"title","type":"string","label":"标题上行","default":"核心平台连接"},
+  {"id":"highlightTitle","type":"string","label":"标题强调行","default":"四类关键能力"},
+  {"id":"hubLabel","type":"string","label":"中心节点","default":"平台核心"},
+  {"id":"node1","type":"string","label":"节点一","default":"工具"},
+  {"id":"node2","type":"string","label":"节点二","default":"人才"},
+  {"id":"node3","type":"string","label":"节点三","default":"伙伴"},
+  {"id":"node4","type":"string","label":"节点四","default":"标准"},
+  {"id":"footer","type":"string","label":"底部说明","default":"适用：平台生态、基础设施依赖、中心辐射关系"},
+  {"id":"accent","type":"color","label":"强调色","default":"#b7f335"}
+]'>
+<head>
+  <meta charset="UTF-8"><meta name="viewport" content="width=1080,height=1920"><title>生态中心</title>
+  <style>
+    @font-face{font-family:"Alibaba PuHuiTi";src:url("assets/fonts/AlibabaPuHuiTi-3-Regular.otf");font-weight:400}
+    @font-face{font-family:"Alibaba PuHuiTi";src:url("assets/fonts/AlibabaPuHuiTi-3-Bold.otf");font-weight:700}
+    *{box-sizing:border-box}html,body{margin:0;width:1080px;height:1920px;overflow:hidden;background:#071014;font-family:"Alibaba PuHuiTi",sans-serif}
+    #root,.clip,.stage{position:absolute;inset:0;width:1080px;height:1920px;overflow:hidden}.stage{color:#f6fbf9;background:radial-gradient(circle at 50% 55%,#16342e,#071014 55%)}
+    .head{position:absolute;left:162px;top:240px;width:756px}.kicker{color:var(--accent);font-size:22px;font-weight:700;letter-spacing:5px}
+    h1{position:relative;margin:28px 0 0;width:756px;height:184px;font-size:72px;line-height:1}h1 span,h1 b{position:absolute;left:0;width:756px;height:80px;display:block}h1 span{top:0}h1 b{top:96px;color:var(--accent)}
+    .map{position:absolute;left:120px;top:605px;width:840px;height:670px}.hub{position:absolute;left:295px;top:205px;width:250px;height:250px;border-radius:50%;background:var(--accent);color:#0b1814;display:grid;place-items:center;font-size:42px;font-weight:700;box-shadow:0 0 70px color-mix(in srgb,var(--accent) 35%,transparent);z-index:3}
+    .node{position:absolute;width:210px;height:116px;border:3px solid #547067;border-radius:22px;background:#0c1a1b;display:grid;place-items:center;font-size:31px;font-weight:700;z-index:2}.n1{left:0;top:50px}.n2{right:0;top:50px}.n3{left:0;bottom:50px}.n4{right:0;bottom:50px}
+    .connector{position:absolute;width:265px;height:8px;z-index:1}.connector i{display:block;width:100%;height:4px;background:#69887e;transform-origin:left}.c1{left:172px;top:183px;transform:rotate(29deg)}.c2{right:172px;top:183px;transform:rotate(151deg)}.c3{left:172px;bottom:183px;transform:rotate(-29deg)}.c4{right:172px;bottom:183px;transform:rotate(209deg)}
+    .dot{position:absolute;left:408px;top:326px;width:24px;height:24px;border-radius:50%;background:#fff;z-index:2}.footer{position:absolute;left:162px;top:1350px;width:756px;color:#91a9a0;font-size:23px;border-top:2px solid #34534a;padding-top:22px}
+  </style>
+</head>
+<body>
+  <div id="root" data-composition-id="ecosystem-hub" data-start="0" data-duration="7" data-width="1080" data-height="1920">
+    <section id="ecosystem-hub-scene" class="clip" data-start="0" data-duration="7" data-track-index="1"><div class="stage">
+      <div class="head"><div class="kicker" data-var-text="kicker">PLATFORM / ECOSYSTEM</div><h1><span data-var-text="title">核心平台连接</span><b data-var-text="highlightTitle">四类关键能力</b></h1></div>
+      <div class="map">
+        <div class="connector c1"><i></i></div><div class="connector c2"><i></i></div><div class="connector c3"><i></i></div><div class="connector c4"><i></i></div>
+        <div class="node n1" data-var-text="node1">工具</div><div class="node n2" data-var-text="node2">人才</div><div class="node n3" data-var-text="node3">伙伴</div><div class="node n4" data-var-text="node4">标准</div>
+        <div class="hub" data-var-text="hubLabel">平台核心</div><div class="dot"></div>
+      </div>
+      <div class="footer" data-var-text="footer">适用：平台生态、基础设施依赖、中心辐射关系</div>
+    </div></section>
+  </div>
+  <script src="assets/gsap.min.js"></script>
+  <script>
+    const tl=gsap.timeline({paused:true});
+    tl.from(".kicker",{y:-24,opacity:0,duration:.4,ease:"power3.out"},.08)
+      .from("h1",{x:-60,opacity:0,duration:.62,ease:"power4.out"},.2)
+      .from(".hub",{scale:.45,opacity:0,duration:.62,ease:"back.out(1.6)"},.65)
+      .from(".connector i",{scaleX:0,duration:.5,stagger:.12,ease:"power2.out"},1.05)
+      .from(".node",{scale:.72,opacity:0,duration:.46,stagger:.14,ease:"back.out(1.4)"},1.35)
+      .from(".dot",{scale:.1,opacity:0,duration:.35,ease:"back.out(2)"},1.9)
+      .from(".footer",{y:24,opacity:0,duration:.45,ease:"power2.out"},2.25)
+      .to(".dot",{scale:1.5,duration:.6,ease:"power1.inOut"},3.0);
+    window.__timelines=window.__timelines||{};window.__timelines["ecosystem-hub"]=tl;
+  </script>
+</body>
+</html>
