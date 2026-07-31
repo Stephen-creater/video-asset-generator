@@ -1,0 +1,18 @@
+{
+  "kicker": "PRICE / EVIDENCE",
+  "title": "成本发生变化",
+  "highlightTitle": "终端价格给出证据",
+  "product1": "产品标准版",
+  "label1": "公开起售价",
+  "old1": "¥4,999",
+  "new1": "¥5,499",
+  "direction1": "↑",
+  "product2": "产品专业版",
+  "label2": "公开起售价",
+  "old2": "¥7,999",
+  "new2": "¥8,999",
+  "direction2": "↑",
+  "source": "来源：官方价格页｜示例数据",
+  "accent": "#f2b84b",
+  "riskColor": "#f05a47"
+}

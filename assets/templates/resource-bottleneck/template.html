@@ -1,0 +1,73 @@
+<!doctype html>
+<html lang="zh-CN" data-composition-variables='[
+  {"id":"kicker","type":"string","label":"眉题","default":"SUPPLY / BOTTLENECK"},
+  {"id":"title","type":"string","label":"标题上行","default":"关键资源流向高价值需求"},
+  {"id":"highlightTitle","type":"string","label":"标题强调行","default":"其他环节开始承压"},
+  {"id":"sourceName","type":"string","label":"上游资源","default":"核心资源池"},
+  {"id":"item1","type":"string","label":"下游一","default":"业务 A"},
+  {"id":"status1","type":"string","label":"下游一状态","default":"供给减少"},
+  {"id":"item2","type":"string","label":"下游二","default":"业务 B"},
+  {"id":"status2","type":"string","label":"下游二状态","default":"交付变慢"},
+  {"id":"item3","type":"string","label":"下游三","default":"业务 C"},
+  {"id":"status3","type":"string","label":"下游三状态","default":"成本上升"},
+  {"id":"accent","type":"color","label":"资源色","default":"#73a8ff"},
+  {"id":"flowColor","type":"color","label":"流动色","default":"#f2b84b"},
+  {"id":"riskColor","type":"color","label":"风险色","default":"#f05a47"}
+]'>
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=1080,height=1920">
+  <title>资源瓶颈</title>
+  <style>
+    @font-face{font-family:"Alibaba PuHuiTi";src:url("assets/fonts/AlibabaPuHuiTi-3-Regular.otf");font-weight:400}
+    @font-face{font-family:"Alibaba PuHuiTi";src:url("assets/fonts/AlibabaPuHuiTi-3-Bold.otf");font-weight:700}
+    *{box-sizing:border-box}
+    html,body{margin:0;width:1080px;height:1920px;overflow:hidden;background:#06080d;font-family:"Alibaba PuHuiTi",sans-serif}
+    #root,.stage{position:absolute;inset:0;overflow:hidden}
+    .stage{color:#f4f5f7;background:radial-gradient(circle at 50% 42%,color-mix(in srgb,var(--accent) 10%,#0d1723),#06080d 62%)}
+    .scene{position:absolute;left:140px;top:230px;width:800px;height:1120px}
+    .kicker{color:var(--accent);font-size:22px;font-weight:700;letter-spacing:5px}
+    h1{margin:30px 0 0;font-size:71px;line-height:1.1}h1 b{display:block;color:var(--flowColor)}
+    .pipe{position:absolute;left:340px;top:370px;width:120px;height:440px;border:5px solid #34475f;border-radius:60px;background:#151f2b}
+    .flow{position:absolute;left:25px;top:22px;width:60px;height:368px;border-radius:30px;background:var(--flowColor);transform-origin:top}
+    .source{position:absolute;left:190px;top:330px;width:420px;height:150px;border:4px solid var(--accent);border-radius:26px;background:#101722;display:grid;place-items:center;color:var(--accent);font-size:43px;font-weight:700}
+    .pinch{position:absolute;left:284px;top:750px;width:232px;height:12px;background:var(--riskColor);box-shadow:0 0 35px var(--riskColor)}
+    .items{position:absolute;left:40px;top:850px;width:720px;display:flex;justify-content:space-between}
+    .item{width:205px;height:180px;border:4px solid #66717f;border-radius:24px;padding:25px 18px;text-align:center;background:#0b1119}
+    .item i{display:block;height:34px;border-radius:9px;background:#303a47;transform-origin:left}
+    .item b{display:block;margin-top:25px;font-size:30px}.item span{display:block;margin-top:9px;color:var(--riskColor);font-size:22px}
+  </style>
+</head>
+<body>
+  <div id="root" data-composition-id="resource-bottleneck" data-start="0" data-duration="7" data-width="1080" data-height="1920">
+    <section id="resource-bottleneck-scene" class="clip stage" data-start="0" data-duration="7" data-track-index="1">
+      <div class="scene">
+        <div class="kicker" data-var-text="kicker">SUPPLY / BOTTLENECK</div>
+        <h1><span data-var-text="title">关键资源流向高价值需求</span><b data-var-text="highlightTitle">其他环节开始承压</b></h1>
+        <div class="pipe"><div class="flow"></div></div>
+        <div class="source" data-var-text="sourceName">核心资源池</div>
+        <div class="pinch"></div>
+        <div class="items">
+          <div class="item"><i></i><b data-var-text="item1">业务 A</b><span data-var-text="status1">供给减少</span></div>
+          <div class="item"><i></i><b data-var-text="item2">业务 B</b><span data-var-text="status2">交付变慢</span></div>
+          <div class="item"><i></i><b data-var-text="item3">业务 C</b><span data-var-text="status3">成本上升</span></div>
+        </div>
+      </div>
+    </section>
+  </div>
+  <script src="assets/gsap.min.js"></script>
+  <script>
+    const tl=gsap.timeline({paused:true});
+    tl.from(".kicker",{y:-24,opacity:0,duration:.45,ease:"power3.out"},.08)
+      .from("h1",{y:55,opacity:0,duration:.65,ease:"power3.out"},.2)
+      .from(".source",{scale:.72,opacity:0,duration:.58,ease:"back.out(1.4)"},.58)
+      .from(".pipe",{scaleY:.1,opacity:0,transformOrigin:"top",duration:.6,ease:"power3.out"},.82)
+      .from(".flow",{scaleY:0,duration:1.05,ease:"power2.inOut"},1.0)
+      .from(".pinch",{scaleX:0,duration:.35,ease:"expo.out"},1.65)
+      .from(".item",{y:100,opacity:0,duration:.55,stagger:.12,ease:"power3.out"},1.78)
+      .to(".item i",{scaleX:.28,duration:.9,stagger:.1,ease:"power3.inOut"},2.35);
+    window.__timelines=window.__timelines||{};
+    window.__timelines["resource-bottleneck"]=tl;
+  </script>
+</body>
+</html>

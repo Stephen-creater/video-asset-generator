@@ -1,0 +1,74 @@
+<!doctype html>
+<html lang="zh-CN" data-composition-variables='[
+  {"id":"kicker","type":"string","label":"眉题","default":"PROCESS / FOUR STEPS"},
+  {"id":"title","type":"string","label":"标题","default":"一项计划，经过四个关键节点"},
+  {"id":"n1","type":"string","label":"节点一编号","default":"01"},
+  {"id":"t1","type":"string","label":"节点一标题","default":"提出问题"},
+  {"id":"d1","type":"string","label":"节点一说明","default":"明确目标与限制"},
+  {"id":"n2","type":"string","label":"节点二编号","default":"02"},
+  {"id":"t2","type":"string","label":"节点二标题","default":"验证方案"},
+  {"id":"d2","type":"string","label":"节点二说明","default":"用小规模测试排除风险"},
+  {"id":"n3","type":"string","label":"节点三编号","default":"03"},
+  {"id":"t3","type":"string","label":"节点三标题","default":"扩大执行"},
+  {"id":"d3","type":"string","label":"节点三说明","default":"把有效方法投入生产"},
+  {"id":"n4","type":"string","label":"节点四编号","default":"04"},
+  {"id":"t4","type":"string","label":"节点四标题","default":"形成闭环"},
+  {"id":"d4","type":"string","label":"节点四说明","default":"记录结果并持续迭代"},
+  {"id":"footer","type":"string","label":"底部说明","default":"适用：流程、路径、时间顺序与审批链"},
+  {"id":"accent","type":"color","label":"主色","default":"#73a8ff"},
+  {"id":"highlight","type":"color","label":"终点色","default":"#f2b84b"}
+]'>
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=1080,height=1920">
+  <title>多节点路径</title>
+  <style>
+    @font-face{font-family:"Alibaba PuHuiTi";src:url("assets/fonts/AlibabaPuHuiTi-3-Regular.otf");font-weight:400}
+    @font-face{font-family:"Alibaba PuHuiTi";src:url("assets/fonts/AlibabaPuHuiTi-3-Bold.otf");font-weight:700}
+    *{box-sizing:border-box}
+    html,body{margin:0;width:1080px;height:1920px;overflow:hidden;background:#06080d;font-family:"Alibaba PuHuiTi",sans-serif}
+    #root,.stage{position:absolute;inset:0;overflow:hidden}
+    .stage{color:#f4f5f7;background:radial-gradient(circle at 78% 18%,color-mix(in srgb,var(--accent) 16%,transparent),transparent 32%),linear-gradient(180deg,#0d131d,#06080d)}
+    .stage:before{content:"";position:absolute;inset:0;background-image:linear-gradient(#73a8ff0b 1px,transparent 1px),linear-gradient(90deg,#73a8ff0b 1px,transparent 1px);background-size:72px 72px}
+    .route{position:absolute;left:162px;top:230px;width:756px;height:1120px}
+    .kicker{color:var(--accent);font-size:22px;font-weight:700;letter-spacing:5px}
+    h1{margin:30px 0 0;width:756px;font-size:74px;line-height:1.1}
+    .rail{position:absolute;left:32px;top:280px;width:8px;height:690px;border-radius:4px;background:#253142}
+    .rail-fill{width:8px;height:690px;border-radius:4px;background:linear-gradient(var(--accent),var(--highlight));transform-origin:top}
+    .node{position:absolute;left:0;width:756px;height:138px;border:3px solid #344052;border-radius:28px;background:#0c121be8;display:flex;align-items:center;padding:0 34px 0 74px}
+    .node i{position:absolute;left:0;width:68px;height:68px;border:5px solid var(--accent);border-radius:50%;background:#08101a;display:grid;place-items:center;color:var(--accent);font-size:22px;font-style:normal}
+    .copy{margin-left:38px}.copy b{display:block;font-size:40px}.copy span{display:block;margin-top:8px;color:#9aa3af;font-size:23px}
+    .n1{top:260px}.n2{top:430px}.n3{top:600px}.n4{top:770px;border-color:var(--highlight)}
+    .n4 i{border-color:var(--highlight);color:var(--highlight)}
+    .footer{position:absolute;left:0;top:960px;width:756px;border-top:3px solid var(--highlight);padding-top:24px;color:#aeb7c3;font-size:24px}
+  </style>
+</head>
+<body>
+  <div id="root" data-composition-id="multi-node-path" data-start="0" data-duration="8" data-width="1080" data-height="1920">
+    <section id="multi-node-path-scene" class="clip stage" data-start="0" data-duration="8" data-track-index="1">
+      <div class="route">
+        <div class="kicker" data-var-text="kicker">PROCESS / FOUR STEPS</div>
+        <h1 data-var-text="title">一项计划，经过四个关键节点</h1>
+        <div class="rail"><div class="rail-fill"></div></div>
+        <div class="node n1"><i data-var-text="n1">01</i><div class="copy"><b data-var-text="t1">提出问题</b><span data-var-text="d1">明确目标与限制</span></div></div>
+        <div class="node n2"><i data-var-text="n2">02</i><div class="copy"><b data-var-text="t2">验证方案</b><span data-var-text="d2">用小规模测试排除风险</span></div></div>
+        <div class="node n3"><i data-var-text="n3">03</i><div class="copy"><b data-var-text="t3">扩大执行</b><span data-var-text="d3">把有效方法投入生产</span></div></div>
+        <div class="node n4"><i data-var-text="n4">04</i><div class="copy"><b data-var-text="t4">形成闭环</b><span data-var-text="d4">记录结果并持续迭代</span></div></div>
+        <div class="footer" data-var-text="footer">适用：流程、路径、时间顺序与审批链</div>
+      </div>
+    </section>
+  </div>
+  <script src="assets/gsap.min.js"></script>
+  <script>
+    const tl=gsap.timeline({paused:true});
+    tl.from(".kicker",{y:-24,opacity:0,duration:.45,ease:"power3.out"},.08)
+      .from("h1",{x:-70,opacity:0,duration:.65,ease:"power4.out"},.2)
+      .fromTo(".rail-fill",{scaleY:0},{scaleY:1,duration:2.1,ease:"power2.inOut"},.58)
+      .from(".node",{x:100,opacity:0,duration:.55,stagger:.34,ease:"power3.out"},.66)
+      .from(".footer",{scaleX:0,transformOrigin:"left",opacity:0,duration:.55,ease:"power2.out"},2.15)
+      .to(".n4",{scale:1.025,duration:.45,ease:"back.out(1.5)"},2.35);
+    window.__timelines=window.__timelines||{};
+    window.__timelines["multi-node-path"]=tl;
+  </script>
+</body>
+</html>

@@ -1,0 +1,66 @@
+<!doctype html>
+<html lang="zh-CN" data-composition-variables='[
+  {"id":"kicker","type":"string","label":"眉题","default":"MARKET / NEW ENTRANT"},
+  {"id":"title","type":"string","label":"标题上行","default":"原有格局没有消失"},
+  {"id":"highlightTitle","type":"string","label":"标题强调行","default":"但新玩家已经入场"},
+  {"id":"player1","type":"string","label":"原玩家一","default":"玩家 A"},
+  {"id":"player2","type":"string","label":"原玩家二","default":"玩家 B"},
+  {"id":"player3","type":"string","label":"原玩家三","default":"玩家 C"},
+  {"id":"newPlayer","type":"string","label":"新玩家","default":"新玩家"},
+  {"id":"footer","type":"string","label":"底部说明","default":"THE MARKET HAS A NEW SEAT"},
+  {"id":"accent","type":"color","label":"强调色","default":"#f2b84b"},
+  {"id":"newPlayerColor","type":"color","label":"新玩家颜色","default":"#f05a47"}
+]'>
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=1080,height=1920">
+  <title>新玩家入场</title>
+  <style>
+    @font-face{font-family:"Alibaba PuHuiTi";src:url("assets/fonts/AlibabaPuHuiTi-3-Regular.otf");font-weight:400}
+    @font-face{font-family:"Alibaba PuHuiTi";src:url("assets/fonts/AlibabaPuHuiTi-3-Bold.otf");font-weight:700}
+    *{box-sizing:border-box}
+    html,body{margin:0;width:1080px;height:1920px;overflow:hidden;background:#06080d;font-family:"Alibaba PuHuiTi",sans-serif}
+    #root,.stage{position:absolute;inset:0;overflow:hidden}
+    .stage{color:#f4f5f7;background:radial-gradient(circle at 50% 60%,#162334,#06080d 66%)}
+    .scene{position:absolute;left:145px;top:230px;width:790px;height:1130px}
+    .kicker{color:var(--accent);font-size:22px;font-weight:700;letter-spacing:5px}
+    h1{margin:30px 0 0;font-size:73px;line-height:1.08}h1 b{display:block;color:var(--accent)}
+    .table{position:absolute;left:0;top:380px;width:790px;height:610px;border:5px solid #344052;border-radius:50%;background:radial-gradient(ellipse,#182333,#080b10 72%);box-shadow:inset 0 0 90px #000}
+    .player{position:absolute;width:210px;height:285px;border:5px solid;border-radius:28px;background:#101620;display:grid;place-items:center;text-align:center;font-size:37px;font-weight:700}
+    .p1{left:80px;top:145px;border-color:#8d98a6;transform:rotate(-8deg)}.p2{left:290px;top:110px;border-color:#66717f}.p3{left:500px;top:145px;border-color:#a95b91;transform:rotate(8deg)}
+    .p4{left:290px;top:290px;border-color:var(--newPlayerColor);color:var(--accent)}
+    .footer{position:absolute;left:90px;top:1040px;width:610px;border-top:4px solid var(--accent);padding-top:20px;color:#9aa3af;font-size:22px;letter-spacing:4px}
+  </style>
+</head>
+<body>
+  <div id="root" data-composition-id="new-player-table" data-start="0" data-duration="7" data-width="1080" data-height="1920">
+    <section id="new-player-table-scene" class="clip stage" data-start="0" data-duration="7" data-track-index="1">
+      <div class="scene">
+        <div class="kicker" data-var-text="kicker">MARKET / NEW ENTRANT</div>
+        <h1><span data-var-text="title">原有格局没有消失</span><b data-var-text="highlightTitle">但新玩家已经入场</b></h1>
+        <div class="table">
+          <div class="player p1" data-var-text="player1">玩家 A</div>
+          <div class="player p2" data-var-text="player2">玩家 B</div>
+          <div class="player p3" data-var-text="player3">玩家 C</div>
+          <div class="player p4" data-var-text="newPlayer">新玩家</div>
+        </div>
+        <div class="footer" data-var-text="footer">THE MARKET HAS A NEW SEAT</div>
+      </div>
+    </section>
+  </div>
+  <script src="assets/gsap.min.js"></script>
+  <script>
+    const tl=gsap.timeline({paused:true});
+    tl.from(".kicker",{y:-24,opacity:0,duration:.45,ease:"power3.out"},.08)
+      .from("h1",{y:55,opacity:0,duration:.62,ease:"power3.out"},.2)
+      .from(".table",{scale:.6,opacity:0,duration:.72,ease:"expo.out"},.58)
+      .from(".p1,.p2,.p3",{y:-120,opacity:0,duration:.58,stagger:.12,ease:"power3.out"},.92)
+      .from(".p4",{y:280,scale:.65,opacity:0,duration:.72,ease:"back.out(1.6)"},1.45)
+      .to(".p1",{x:-28,duration:.5,ease:"power3.inOut"},2.02)
+      .to(".p3",{x:28,duration:.5,ease:"power3.inOut"},2.02)
+      .from(".footer",{scaleX:0,transformOrigin:"left",duration:.55,ease:"power2.out"},2.25);
+    window.__timelines=window.__timelines||{};
+    window.__timelines["new-player-table"]=tl;
+  </script>
+</body>
+</html>

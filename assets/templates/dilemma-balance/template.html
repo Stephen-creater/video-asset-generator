@@ -1,0 +1,77 @@
+<!doctype html>
+<html lang="zh-CN" data-composition-variables='[
+  {"id":"kicker","type":"string","label":"眉题","default":"DECISION / TRADE-OFF"},
+  {"id":"title","type":"string","label":"标题上行","default":"这不是选择题"},
+  {"id":"highlightTitle","type":"string","label":"标题强调行","default":"而是一道两难题"},
+  {"id":"leftTitle","type":"string","label":"左侧选择","default":"选择 A"},
+  {"id":"leftDetail","type":"string","label":"左侧后果","default":"获得短期收益\n同时承担长期风险"},
+  {"id":"rightTitle","type":"string","label":"右侧选择","default":"选择 B"},
+  {"id":"rightDetail","type":"string","label":"右侧后果","default":"避免眼前风险\n但会错过增长机会"},
+  {"id":"leftWeight","type":"string","label":"左侧权重","default":"长期\n风险"},
+  {"id":"rightWeight","type":"string","label":"右侧权重","default":"增长\n机会"},
+  {"id":"decisionOwner","type":"string","label":"决策者","default":"DECISION MAKER"},
+  {"id":"leftColor","type":"color","label":"左侧颜色","default":"#73a8ff"},
+  {"id":"rightColor","type":"color","label":"右侧颜色","default":"#f05a47"},
+  {"id":"accent","type":"color","label":"强调色","default":"#f2b84b"}
+]'>
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=1080,height=1920">
+  <title>两难权衡</title>
+  <style>
+    @font-face{font-family:"Alibaba PuHuiTi";src:url("assets/fonts/AlibabaPuHuiTi-3-Regular.otf");font-weight:400}
+    @font-face{font-family:"Alibaba PuHuiTi";src:url("assets/fonts/AlibabaPuHuiTi-3-Bold.otf");font-weight:700}
+    *{box-sizing:border-box}
+    html,body{margin:0;width:1080px;height:1920px;overflow:hidden;background:#06080d;font-family:"Alibaba PuHuiTi",sans-serif}
+    #root,.stage{position:absolute;inset:0;overflow:hidden}
+    .stage{color:#f4f5f7;background:radial-gradient(circle at 50% 50%,#14202b,#06080d 67%)}
+    .scene{position:absolute;left:125px;top:230px;width:830px;height:1120px}
+    .kicker{text-align:center;color:var(--accent);font-size:22px;font-weight:700;letter-spacing:5px}
+    h1{margin:30px 0 0;text-align:center;font-size:78px;line-height:1.08}h1 b{display:block;color:var(--accent)}
+    .choice{position:absolute;top:350px;width:335px;height:300px;border:4px solid;border-radius:30px;padding:40px 32px;background:#0b1119}
+    .left{left:0;border-color:var(--leftColor)}.right{right:0;border-color:var(--rightColor)}
+    .choice b{display:block;font-size:48px}.choice span{display:block;margin-top:28px;white-space:pre-line;color:#c3cad3;font-size:27px;line-height:1.45}
+    .left b{color:var(--leftColor)}.right b{color:var(--rightColor)}
+    .beam{position:absolute;left:75px;top:700px;width:680px;height:24px;border-radius:12px;background:#8d98a6}
+    .pivot{position:absolute;left:345px;top:712px;width:140px;height:210px;background:#26313e;clip-path:polygon(50% 0,100% 100%,0 100%)}
+    .weight{position:absolute;top:650px;width:160px;height:160px;border-radius:50%;display:grid;place-items:center;white-space:pre-line;text-align:center;font-size:27px;font-weight:700}
+    .w1{left:35px;background:var(--leftColor);color:#08111e}.w2{right:35px;background:var(--rightColor);color:#190705}
+    .owner{position:absolute;left:265px;top:980px;width:300px;border-top:3px solid var(--accent);padding-top:22px;text-align:center;font-size:31px;letter-spacing:4px}
+  </style>
+</head>
+<body>
+  <div id="root" data-composition-id="dilemma-balance" data-start="0" data-duration="8" data-width="1080" data-height="1920">
+    <section id="dilemma-balance-scene" class="clip stage" data-start="0" data-duration="8" data-track-index="1">
+      <div class="scene">
+        <div class="kicker" data-var-text="kicker">DECISION / TRADE-OFF</div>
+        <h1><span data-var-text="title">这不是选择题</span><b data-var-text="highlightTitle">而是一道两难题</b></h1>
+        <div class="choice left"><b data-var-text="leftTitle">选择 A</b><span data-var-text="leftDetail">获得短期收益
+同时承担长期风险</span></div>
+        <div class="choice right"><b data-var-text="rightTitle">选择 B</b><span data-var-text="rightDetail">避免眼前风险
+但会错过增长机会</span></div>
+        <div class="beam"></div><div class="pivot"></div>
+        <div class="weight w1" data-var-text="leftWeight">长期
+风险</div>
+        <div class="weight w2" data-var-text="rightWeight">增长
+机会</div>
+        <div class="owner" data-var-text="decisionOwner">DECISION MAKER</div>
+      </div>
+    </section>
+  </div>
+  <script src="assets/gsap.min.js"></script>
+  <script>
+    const tl=gsap.timeline({paused:true});
+    tl.from(".kicker",{y:-24,opacity:0,duration:.45,ease:"power3.out"},.08)
+      .from("h1",{scale:.8,opacity:0,duration:.58,ease:"expo.out"},.2)
+      .from(".choice.left",{x:-130,opacity:0,duration:.62,ease:"power3.out"},.62)
+      .from(".choice.right",{x:130,opacity:0,duration:.62,ease:"power3.out"},.62)
+      .from(".pivot",{scaleY:.1,transformOrigin:"bottom",duration:.55,ease:"power3.out"},1.02)
+      .from(".beam",{scaleX:0,transformOrigin:"center",duration:.55,ease:"expo.out"},1.15)
+      .from(".weight",{y:-120,opacity:0,duration:.65,stagger:.15,ease:"bounce.out"},1.42)
+      .to(".beam",{rotation:5,duration:.8,ease:"sine.inOut",repeat:2,yoyo:true},2.0)
+      .from(".owner",{y:45,opacity:0,duration:.48,ease:"power2.out"},2.25);
+    window.__timelines=window.__timelines||{};
+    window.__timelines["dilemma-balance"]=tl;
+  </script>
+</body>
+</html>

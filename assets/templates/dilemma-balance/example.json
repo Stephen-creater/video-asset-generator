@@ -1,0 +1,15 @@
+{
+  "kicker": "DECISION / TRADE-OFF",
+  "title": "这不是选择题",
+  "highlightTitle": "而是一道两难题",
+  "leftTitle": "选择 A",
+  "leftDetail": "获得短期收益\n同时承担长期风险",
+  "rightTitle": "选择 B",
+  "rightDetail": "避免眼前风险\n但会错过增长机会",
+  "leftWeight": "长期\n风险",
+  "rightWeight": "增长\n机会",
+  "decisionOwner": "DECISION MAKER",
+  "leftColor": "#73a8ff",
+  "rightColor": "#f05a47",
+  "accent": "#f2b84b"
+}

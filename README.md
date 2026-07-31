@@ -11,7 +11,7 @@
 - 规划关键词、章节标题、金句和字幕之间的分工
 - 约束 1080×1920 竖屏安全区、文字容器、对比结构和动画时序
 - 指导 HyperFrames / GSAP 的确定性实现、分段渲染与抽帧验收
-- 提供真实证据、时间线、网页滚动、设问、对比和结尾钩子六类参数化模板
+- 提供证据、流程、瓶颈、价格、两难、指标、市场格局等 12 类参数化模板
 - 预检中文字体、危险定位、随机动画和本地绝对路径
 - 计算中英文口播时间并生成 SRT
 - 将 VTT、ASS/SSA 和常见纯文本时间戳转换为 SRT
@@ -29,8 +29,14 @@ video-asset-generator/
 │   └── templates/
 │       ├── comparison/
 │       ├── cta/
+│       ├── dilemma-balance/
 │       ├── evidence-card/
+│       ├── multi-node-path/
+│       ├── new-player-table/
+│       ├── price-evidence/
 │       ├── question/
+│       ├── resource-bottleneck/
+│       ├── three-metric-proof/
 │       ├── timeline/
 │       └── webpage-scroll/
 ├── dist/
@@ -54,7 +60,7 @@ video-asset-generator/
 | `references/visual-playbook.md` | 传播任务、媒介选择、构图与生图提示词手册 |
 | `references/hyperframes-rules.md` | HyperFrames / GSAP 实现约束 |
 | `references/quality-gates.md` | 渲染前、构图、动画、技术和分发验收表 |
-| `references/template-catalog.md` | 六类模板的适用边界与使用流程 |
+| `references/template-catalog.md` | 12 类模板的适用边界与使用流程 |
 | `assets/templates/` | 参数化 HTML 模板和示例 JSON |
 | `scripts/preflight.py` | 扫描字体与常见布局、确定性风险 |
 | `scripts/calc_timing.py` | 根据中英文文本估算时长并生成 SRT |
@@ -183,7 +189,7 @@ python3 scripts/srt_convert.py timestamps.txt -o output.srt
 当前 `.skill` 包的 SHA-256：
 
 ```text
-b4dc0eba66e3a3ca92814874f25b0dd60e61dbbed8f5e27b8c0ce0ed435a1686
+e0d986a5c8de0fd45e3cf599d4abb893701f05e4787c2e600e8c96163f189674
 ```
 
 可运行以下命令核验：

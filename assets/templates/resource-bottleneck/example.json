@@ -1,0 +1,15 @@
+{
+  "kicker": "SUPPLY / BOTTLENECK",
+  "title": "关键资源流向高价值需求",
+  "highlightTitle": "其他环节开始承压",
+  "sourceName": "核心资源池",
+  "item1": "业务 A",
+  "status1": "供给减少",
+  "item2": "业务 B",
+  "status2": "交付变慢",
+  "item3": "业务 C",
+  "status3": "成本上升",
+  "accent": "#73a8ff",
+  "flowColor": "#f2b84b",
+  "riskColor": "#f05a47"
+}

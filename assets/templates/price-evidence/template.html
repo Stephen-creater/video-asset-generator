@@ -1,0 +1,67 @@
+<!doctype html>
+<html lang="zh-CN" data-composition-variables='[
+  {"id":"kicker","type":"string","label":"眉题","default":"PRICE / EVIDENCE"},
+  {"id":"title","type":"string","label":"标题上行","default":"成本发生变化"},
+  {"id":"highlightTitle","type":"string","label":"标题强调行","default":"终端价格给出证据"},
+  {"id":"product1","type":"string","label":"产品一","default":"产品标准版"},
+  {"id":"label1","type":"string","label":"产品一说明","default":"公开起售价"},
+  {"id":"old1","type":"string","label":"产品一旧值","default":"¥4,999"},
+  {"id":"new1","type":"string","label":"产品一新值","default":"¥5,499"},
+  {"id":"direction1","type":"string","label":"产品一方向","default":"↑"},
+  {"id":"product2","type":"string","label":"产品二","default":"产品专业版"},
+  {"id":"label2","type":"string","label":"产品二说明","default":"公开起售价"},
+  {"id":"old2","type":"string","label":"产品二旧值","default":"¥7,999"},
+  {"id":"new2","type":"string","label":"产品二新值","default":"¥8,999"},
+  {"id":"direction2","type":"string","label":"产品二方向","default":"↑"},
+  {"id":"source","type":"string","label":"证据来源","default":"来源：官方价格页｜示例数据"},
+  {"id":"accent","type":"color","label":"数值色","default":"#f2b84b"},
+  {"id":"riskColor","type":"color","label":"方向色","default":"#f05a47"}
+]'>
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=1080,height=1920">
+  <title>价格证据</title>
+  <style>
+    @font-face{font-family:"Alibaba PuHuiTi";src:url("assets/fonts/AlibabaPuHuiTi-3-Regular.otf");font-weight:400}
+    @font-face{font-family:"Alibaba PuHuiTi";src:url("assets/fonts/AlibabaPuHuiTi-3-Bold.otf");font-weight:700}
+    *{box-sizing:border-box}
+    html,body{margin:0;width:1080px;height:1920px;overflow:hidden;background:#06080d;font-family:"Alibaba PuHuiTi",sans-serif}
+    #root,.stage{position:absolute;inset:0;overflow:hidden}
+    .stage{color:#f4f5f7;background:radial-gradient(circle at 75% 20%,color-mix(in srgb,var(--riskColor) 10%,transparent),transparent 34%),linear-gradient(180deg,#0d1118,#06080d)}
+    .scene{position:absolute;left:150px;top:230px;width:780px;height:1120px}
+    .kicker{color:var(--accent);font-size:22px;font-weight:700;letter-spacing:5px}
+    h1{margin:30px 0 0;font-size:78px;line-height:1.08}h1 b{display:block;color:var(--riskColor)}
+    .card{position:absolute;left:0;width:780px;height:255px;border:3px solid #344052;border-radius:30px;background:#0e141ded;display:grid;grid-template-columns:1.1fr 1fr 80px;align-items:center;padding:35px 42px}
+    .c1{top:350px}.c2{top:645px}
+    .product{font-size:37px;font-weight:700}.product small{display:block;margin-top:14px;color:#9aa3af;font-size:21px;letter-spacing:2px}
+    .money{text-align:right}.old{display:block;color:#7f8997;font-size:34px;text-decoration:line-through}.new{display:block;color:var(--accent);font-size:65px;font-weight:700}
+    .direction{color:var(--riskColor);font-size:70px;text-align:right}
+    .source{position:absolute;left:0;top:955px;width:780px;border-top:3px solid var(--accent);padding-top:28px;color:#cbd2db;font-size:26px;line-height:1.45}
+  </style>
+</head>
+<body>
+  <div id="root" data-composition-id="price-evidence" data-start="0" data-duration="7" data-width="1080" data-height="1920">
+    <section id="price-evidence-scene" class="clip stage" data-start="0" data-duration="7" data-track-index="1">
+      <div class="scene">
+        <div class="kicker" data-var-text="kicker">PRICE / EVIDENCE</div>
+        <h1><span data-var-text="title">成本发生变化</span><b data-var-text="highlightTitle">终端价格给出证据</b></h1>
+        <div class="card c1"><div class="product"><span data-var-text="product1">产品标准版</span><small data-var-text="label1">公开起售价</small></div><div class="money"><span class="old" data-var-text="old1">¥4,999</span><span class="new" data-var-text="new1">¥5,499</span></div><div class="direction" data-var-text="direction1">↑</div></div>
+        <div class="card c2"><div class="product"><span data-var-text="product2">产品专业版</span><small data-var-text="label2">公开起售价</small></div><div class="money"><span class="old" data-var-text="old2">¥7,999</span><span class="new" data-var-text="new2">¥8,999</span></div><div class="direction" data-var-text="direction2">↑</div></div>
+        <div class="source" data-var-text="source">来源：官方价格页｜示例数据</div>
+      </div>
+    </section>
+  </div>
+  <script src="assets/gsap.min.js"></script>
+  <script>
+    const tl=gsap.timeline({paused:true});
+    tl.from(".kicker",{y:-24,opacity:0,duration:.45,ease:"power3.out"},.08)
+      .from("h1",{x:-80,opacity:0,duration:.65,ease:"power4.out"},.2)
+      .from(".card",{x:120,opacity:0,duration:.6,stagger:.28,ease:"power3.out"},.65)
+      .from(".new",{scale:1.45,opacity:0,duration:.42,stagger:.28,ease:"back.out(1.5)"},1.0)
+      .from(".direction",{y:55,opacity:0,duration:.38,stagger:.28,ease:"power4.out"},1.15)
+      .from(".source",{scaleX:0,transformOrigin:"left",opacity:0,duration:.62,ease:"power2.out"},1.75);
+    window.__timelines=window.__timelines||{};
+    window.__timelines["price-evidence"]=tl;
+  </script>
+</body>
+</html>
