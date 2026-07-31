@@ -1,0 +1,15 @@
+{
+  "kicker": "KNOWLEDGE / TRANSFORMATION",
+  "title": "原始材料进入系统",
+  "highlightTitle": "最终变成可调用能力",
+  "sourceLabel": "访谈与文档",
+  "sourceNote": "分散、非结构化",
+  "systemLabel": "知识系统",
+  "systemNote": "可检索、可复用",
+  "node1": "事实",
+  "node2": "规则",
+  "node3": "案例",
+  "node4": "关系",
+  "footer": "适用：文档训练、知识库构建、信息结构化",
+  "accent": "#70e0e8"
+}

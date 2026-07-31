@@ -1,0 +1,9 @@
+{
+  "kicker": "SCALE / CAPACITY",
+  "title": "规模不只体现在数字",
+  "metricValue": "8,192",
+  "metricUnit": "个并行单元",
+  "cellCount": 80,
+  "footer": "适用：算力规模、设备数量、用户容量、并发单元",
+  "accent": "#66e5ef"
+}

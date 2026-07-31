@@ -1,0 +1,10 @@
+{
+  "kicker": "CHANGE / WINDOW",
+  "title": "新的窗口正在打开",
+  "leftLabel": "原有路径",
+  "rightLabel": "新兴路径",
+  "leftImage": "assets/images/left.jpg",
+  "rightImage": "assets/images/right.jpg",
+  "footer": "适用：新旧技术、两代产品、两种阵营的视觉对照",
+  "accent": "#66e5ef"
+}

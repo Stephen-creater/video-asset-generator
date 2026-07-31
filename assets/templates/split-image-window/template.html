@@ -1,0 +1,25 @@
+<!doctype html>
+<html lang="zh-CN" data-composition-variables='[
+  {"id":"kicker","type":"string","label":"眉题","default":"CHANGE / WINDOW"},
+  {"id":"title","type":"string","label":"标题","default":"新的窗口正在打开"},
+  {"id":"leftLabel","type":"string","label":"左图标签","default":"原有路径"},
+  {"id":"rightLabel","type":"string","label":"右图标签","default":"新兴路径"},
+  {"id":"leftImage","type":"string","label":"左图","default":"assets/images/left.jpg"},
+  {"id":"rightImage","type":"string","label":"右图","default":"assets/images/right.jpg"},
+  {"id":"footer","type":"string","label":"底部说明","default":"适用：新旧技术、两代产品、两种阵营的视觉对照"},
+  {"id":"accent","type":"color","label":"强调色","default":"#66e5ef"}
+]'>
+<head><meta charset="UTF-8"><meta name="viewport" content="width=1080,height=1920"><title>双图窗口</title><style>
+@font-face{font-family:"Alibaba PuHuiTi";src:url("assets/fonts/AlibabaPuHuiTi-3-Regular.otf");font-weight:400}@font-face{font-family:"Alibaba PuHuiTi";src:url("assets/fonts/AlibabaPuHuiTi-3-Bold.otf");font-weight:700}
+*{box-sizing:border-box}html,body{margin:0;width:1080px;height:1920px;overflow:hidden;background:#05090e;font-family:"Alibaba PuHuiTi",sans-serif}#root,.clip,.stage{position:absolute;inset:0;width:1080px;height:1920px;overflow:hidden}.stage{background:#05090e;color:#fff}
+.panel{position:absolute;inset:0;overflow:hidden}.panel img{width:100%;height:100%;object-fit:cover}.left{clip-path:polygon(0 0,62% 0,42% 100%,0 100%)}.right{clip-path:polygon(62% 0,100% 0,100% 100%,42% 100%)}.shade{position:absolute;inset:0;background:linear-gradient(180deg,#02060a33,#02060ac0 75%,#02060af5)}
+.divider{position:absolute;left:552px;top:-100px;width:7px;height:2120px;background:var(--accent);box-shadow:0 0 34px var(--accent);transform:rotate(6deg)}
+.head{position:absolute;left:162px;top:240px;width:756px}.kicker{color:var(--accent);font-size:22px;font-weight:700;letter-spacing:5px}h1{margin:30px 0 0;width:650px;font-size:78px;line-height:1.08}
+.label{position:absolute;bottom:340px;padding:15px 24px;border:2px solid #ffffff65;background:#05090ecc;border-radius:12px;font-size:25px;font-weight:700}.ll{left:120px}.rl{right:120px}.footer{position:absolute;left:162px;bottom:245px;width:756px;color:#becbd1;font-size:23px}
+</style></head><body>
+<div id="root" data-composition-id="split-image-window" data-start="0" data-duration="7" data-width="1080" data-height="1920"><section id="split-image-window-scene" class="clip" data-start="0" data-duration="7" data-track-index="1"><div class="stage">
+<div class="panel left"><img data-var-src="leftImage" src="assets/images/left.jpg" alt=""></div><div class="panel right"><img data-var-src="rightImage" src="assets/images/right.jpg" alt=""></div><div class="shade"></div><div class="divider" data-layout-allow-overflow></div>
+<div class="head"><div class="kicker" data-var-text="kicker">CHANGE / WINDOW</div><h1 data-var-text="title">新的窗口正在打开</h1></div><div class="label ll" data-var-text="leftLabel">原有路径</div><div class="label rl" data-var-text="rightLabel">新兴路径</div><div class="footer" data-var-text="footer">适用：新旧技术、两代产品、两种阵营的视觉对照</div>
+</div></section></div><script src="assets/gsap.min.js"></script><script>
+const tl=gsap.timeline({paused:true});tl.from(".left",{x:-180,opacity:0,duration:.8,ease:"power4.out"},.05).from(".right",{x:180,opacity:0,duration:.8,ease:"power4.out"},.15).from(".divider",{scaleY:0,transformOrigin:"top",duration:.7,ease:"power3.out"},.55).from(".kicker,h1",{y:42,opacity:0,duration:.55,stagger:.12,ease:"power3.out"},.72).from(".label",{y:38,opacity:0,duration:.42,stagger:.16,ease:"power2.out"},1.35).from(".footer",{opacity:0,duration:.4},1.8).to(".panel img",{scale:1.045,duration:7,ease:"none"},0);window.__timelines=window.__timelines||{};window.__timelines["split-image-window"]=tl;
+</script></body></html>

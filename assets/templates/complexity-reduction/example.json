@@ -1,0 +1,12 @@
+{
+  "kicker": "AI / SIMPLIFICATION",
+  "title": "复杂输入",
+  "highlightTitle": "被压缩为清晰结果",
+  "inputLabel": "原始规则",
+  "outputLabel": "精简实现",
+  "code1": "define goal",
+  "code2": "apply rules",
+  "code3": "return result",
+  "footer": "适用：代码压缩、流程简化、信息提炼、AI生成结果",
+  "accent": "#f1b84b"
+}

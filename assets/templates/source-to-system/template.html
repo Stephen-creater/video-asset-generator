@@ -1,0 +1,62 @@
+<!doctype html>
+<html lang="zh-CN" data-composition-variables='[
+  {"id":"kicker","type":"string","label":"眉题","default":"KNOWLEDGE / TRANSFORMATION"},
+  {"id":"title","type":"string","label":"标题上行","default":"原始材料进入系统"},
+  {"id":"highlightTitle","type":"string","label":"标题强调行","default":"最终变成可调用能力"},
+  {"id":"sourceLabel","type":"string","label":"来源名称","default":"原始材料"},
+  {"id":"sourceNote","type":"string","label":"来源说明","default":"分散、非结构化"},
+  {"id":"systemLabel","type":"string","label":"系统名称","default":"数字系统"},
+  {"id":"systemNote","type":"string","label":"系统说明","default":"可检索、可复用"},
+  {"id":"node1","type":"string","label":"节点一","default":"事实"},
+  {"id":"node2","type":"string","label":"节点二","default":"规则"},
+  {"id":"node3","type":"string","label":"节点三","default":"案例"},
+  {"id":"node4","type":"string","label":"节点四","default":"关系"},
+  {"id":"footer","type":"string","label":"底部说明","default":"适用：文档训练、知识库构建、信息结构化"},
+  {"id":"accent","type":"color","label":"强调色","default":"#70e0e8"}
+]'>
+<head>
+  <meta charset="UTF-8"><meta name="viewport" content="width=1080,height=1920"><title>材料转化为系统</title>
+  <style>
+    @font-face{font-family:"Alibaba PuHuiTi";src:url("assets/fonts/AlibabaPuHuiTi-3-Regular.otf");font-weight:400}
+    @font-face{font-family:"Alibaba PuHuiTi";src:url("assets/fonts/AlibabaPuHuiTi-3-Bold.otf");font-weight:700}
+    *{box-sizing:border-box}html,body{margin:0;width:1080px;height:1920px;overflow:hidden;background:#071118;font-family:"Alibaba PuHuiTi",sans-serif}
+    #root,.clip,.stage{position:absolute;inset:0;width:1080px;height:1920px;overflow:hidden}.stage{color:#f7fbff;background:radial-gradient(circle at 56% 61%,#16313a,#071118 58%)}
+    .head{position:absolute;left:162px;top:240px;width:756px}.kicker{color:var(--accent);font-size:22px;font-weight:700;letter-spacing:5px}
+    h1{position:relative;margin:28px 0 0;width:756px;height:184px;font-size:68px;line-height:1}h1 span,h1 b{position:absolute;left:0;width:756px;height:80px;display:block}h1 span{top:0}h1 b{top:96px;color:var(--accent)}
+    .flow{position:absolute;left:100px;top:620px;width:880px;height:570px}.source{position:absolute;left:0;top:120px;width:300px;height:320px}.page{position:absolute;left:26px;width:250px;height:300px;border:3px solid #b8c4c7;border-radius:18px;background:#edf2ee;box-shadow:0 22px 50px #0007}.p1{top:0;transform:rotate(-7deg);opacity:.42}.p2{top:0;transform:rotate(5deg);opacity:.68}.p3{top:0;padding:42px 30px;color:#102029}
+    .page b{display:block;font-size:32px}.page span{display:block;margin-top:22px;font-size:21px;color:#50636a}.line{display:block;margin-top:26px;width:180px;height:7px;border-radius:4px;background:#6d8085}.line.short{width:125px}
+    .beam{position:absolute;left:292px;top:266px;width:164px;height:8px;border-radius:4px;background:linear-gradient(90deg,#9aabae,var(--accent));transform-origin:left}
+    .system{position:absolute;right:0;top:0;width:430px;height:570px}.core{position:absolute;left:115px;top:175px;width:200px;height:200px;border:4px solid var(--accent);border-radius:50%;background:#10252b;display:grid;place-content:center;text-align:center;z-index:3;box-shadow:0 0 60px color-mix(in srgb,var(--accent) 28%,transparent)}.core b{font-size:38px}.core span{margin-top:10px;color:#9fc9cd;font-size:20px}
+    .node{position:absolute;width:112px;height:74px;border:3px solid #58727a;border-radius:18px;background:#0d1c22;display:grid;place-items:center;font-size:22px;font-weight:700;z-index:2}.n1{left:0;top:45px}.n2{right:0;top:45px}.n3{left:0;bottom:45px}.n4{right:0;bottom:45px}
+    .connector{position:absolute;width:165px;height:6px;z-index:1}.connector i{display:block;width:100%;height:4px;background:#5c7a80;transform-origin:left}.c1{left:75px;top:143px;transform:rotate(34deg)}.c2{right:75px;top:143px;transform:rotate(146deg)}.c3{left:75px;bottom:143px;transform:rotate(-34deg)}.c4{right:75px;bottom:143px;transform:rotate(214deg)}
+    .footer{position:absolute;left:162px;top:1325px;width:756px;color:#91a7b1;font-size:23px;border-top:2px solid #344b55;padding-top:22px}
+  </style>
+</head>
+<body>
+  <div id="root" data-composition-id="source-to-system" data-start="0" data-duration="8" data-width="1080" data-height="1920">
+    <section id="source-to-system-scene" class="clip" data-start="0" data-duration="8" data-track-index="1"><div class="stage">
+      <div class="head"><div class="kicker" data-var-text="kicker">KNOWLEDGE / TRANSFORMATION</div><h1><span data-var-text="title">原始材料进入系统</span><b data-var-text="highlightTitle">最终变成可调用能力</b></h1></div>
+      <div class="flow">
+        <div class="source"><div class="page p1"></div><div class="page p2"></div><div class="page p3"><b data-var-text="sourceLabel">原始材料</b><span data-var-text="sourceNote">分散、非结构化</span><i class="line"></i><i class="line short"></i></div></div><div class="beam"></div>
+        <div class="system"><div class="connector c1"><i></i></div><div class="connector c2"><i></i></div><div class="connector c3"><i></i></div><div class="connector c4"><i></i></div><div class="node n1" data-var-text="node1">事实</div><div class="node n2" data-var-text="node2">规则</div><div class="node n3" data-var-text="node3">案例</div><div class="node n4" data-var-text="node4">关系</div><div class="core"><b data-var-text="systemLabel">数字系统</b><span data-var-text="systemNote">可检索、可复用</span></div></div>
+      </div>
+      <div class="footer" data-var-text="footer">适用：文档训练、知识库构建、信息结构化</div>
+    </div></section>
+  </div>
+  <script src="assets/gsap.min.js"></script>
+  <script>
+    const tl=gsap.timeline({paused:true});
+    tl.from(".kicker",{y:-24,opacity:0,duration:.4,ease:"power3.out"},.08)
+      .from("h1",{x:-60,opacity:0,duration:.62,ease:"power4.out"},.2)
+      .from(".source",{x:-70,opacity:0,duration:.55,ease:"power3.out"},.7)
+      .from(".page",{opacity:0,duration:.35,stagger:.1,ease:"power2.out"},.88)
+      .from(".beam",{scaleX:0,duration:.75,ease:"power2.inOut"},1.32)
+      .from(".core",{scale:.48,opacity:0,duration:.58,ease:"back.out(1.6)"},1.82)
+      .from(".connector i",{scaleX:0,duration:.42,stagger:.1,ease:"power2.out"},2.18)
+      .from(".node",{scale:.65,opacity:0,duration:.38,stagger:.12,ease:"back.out(1.4)"},2.48)
+      .from(".footer",{y:24,opacity:0,duration:.45,ease:"power2.out"},3.02)
+      .to(".core",{scale:1.025,duration:.5,ease:"power1.inOut"},3.45);
+    window.__timelines=window.__timelines||{};window.__timelines["source-to-system"]=tl;
+  </script>
+</body>
+</html>

@@ -1,0 +1,13 @@
+{
+  "kicker": "REPLACEMENT / TASK",
+  "title": "不是一对一替换",
+  "highlightTitle": "而是一项能力承担多项任务",
+  "source": "原有方案",
+  "sourceNote": "单一能力",
+  "task1": "任务 01",
+  "task2": "任务 02",
+  "task3": "任务 03",
+  "task4": "任务 04",
+  "footer": "适用：一对多替代、能力扩展、岗位或工具重构",
+  "accent": "#5be0d8"
+}

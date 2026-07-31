@@ -1,0 +1,13 @@
+{
+  "kicker": "GAP / RATIO",
+  "title": "差距不是终局",
+  "highlightTitle": "但必须看见真实比例",
+  "leftLabel": "当前",
+  "leftValue": 25,
+  "rightLabel": "目标",
+  "rightValue": 100,
+  "ratioLabel": "4×",
+  "note": "预计需要持续追赶",
+  "footer": "适用：性能差距、市场规模、效率倍数、阶段目标",
+  "accent": "#f1b84b"
+}

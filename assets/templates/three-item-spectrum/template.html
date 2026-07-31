@@ -1,0 +1,59 @@
+<!doctype html>
+<html lang="zh-CN" data-composition-variables='[
+  {"id":"kicker","type":"string","label":"眉题","default":"COMPARE / SPECTRUM"},
+  {"id":"title","type":"string","label":"标题上行","default":"三项内容"},
+  {"id":"highlightTitle","type":"string","label":"标题强调行","default":"放在同一尺度上比较"},
+  {"id":"item1","type":"string","label":"项目一","default":"项目 A"},
+  {"id":"note1","type":"string","label":"项目一说明","default":"更接近左端"},
+  {"id":"item2","type":"string","label":"项目二","default":"项目 B"},
+  {"id":"note2","type":"string","label":"项目二说明","default":"位于中间"},
+  {"id":"item3","type":"string","label":"项目三","default":"项目 C"},
+  {"id":"note3","type":"string","label":"项目三说明","default":"更接近右端"},
+  {"id":"score1","type":"number","label":"项目一位置","default":20,"min":0,"max":100,"step":1},
+  {"id":"score2","type":"number","label":"项目二位置","default":50,"min":0,"max":100,"step":1},
+  {"id":"score3","type":"number","label":"项目三位置","default":80,"min":0,"max":100,"step":1},
+  {"id":"axisStart","type":"string","label":"尺度左端","default":"左端倾向"},
+  {"id":"axisEnd","type":"string","label":"尺度右端","default":"右端倾向"},
+  {"id":"footer","type":"string","label":"底部说明","default":"适用：三项内容在同一连续尺度上的位置比较"},
+  {"id":"accent","type":"color","label":"强调色","default":"#f1b84b"}
+]'>
+<head>
+  <meta charset="UTF-8"><meta name="viewport" content="width=1080,height=1920"><title>三项尺度比较</title>
+  <style>
+    @font-face{font-family:"Alibaba PuHuiTi";src:url("assets/fonts/AlibabaPuHuiTi-3-Regular.otf");font-weight:400}
+    @font-face{font-family:"Alibaba PuHuiTi";src:url("assets/fonts/AlibabaPuHuiTi-3-Bold.otf");font-weight:700}
+    *{box-sizing:border-box}html,body{margin:0;width:1080px;height:1920px;overflow:hidden;background:#071118;font-family:"Alibaba PuHuiTi",sans-serif}
+    #root,.clip,.stage{position:absolute;inset:0;width:1080px;height:1920px;overflow:hidden}.stage{color:#f7fbff;background:radial-gradient(circle at 50% 58%,#18303a,#071118 58%)}
+    .head{position:absolute;left:162px;top:240px;width:756px}.kicker{color:var(--accent);font-size:22px;font-weight:700;letter-spacing:5px}
+    h1{position:relative;margin:28px 0 0;width:756px;height:184px;font-size:70px;line-height:1}h1 span,h1 b{position:absolute;left:0;width:756px;height:80px;display:block}h1 span{top:0}h1 b{top:96px;color:var(--accent)}
+    .cards{position:absolute;left:132px;top:600px;width:816px;height:360px;display:flex;gap:24px;align-items:stretch}.card{width:256px;border:3px solid #516771;border-radius:26px;background:#0d1a21;padding:34px 26px;box-shadow:0 24px 55px #0006}.card.featured{border-color:var(--accent);background:linear-gradient(160deg,#273128,#0d1a21)}
+    .index{color:var(--accent);font-size:19px;font-weight:700;letter-spacing:3px}.card b{display:block;margin-top:52px;font-size:38px}.card span{display:block;margin-top:22px;color:#9eb1b9;font-size:23px}
+    .spectrum{position:absolute;left:162px;top:1055px;width:756px;height:195px}.axis{position:absolute;left:0;top:76px;width:756px;height:6px;border-radius:3px;background:linear-gradient(90deg,#61d7dd,var(--accent));transform-origin:left}
+    .marker{position:absolute;top:52px;width:54px;height:54px;margin-left:-27px;border:7px solid #071118;border-radius:50%;background:var(--accent);box-shadow:0 0 30px color-mix(in srgb,var(--accent) 55%,transparent)}.m1{left:calc(var(--score1) * 1%)}.m2{left:calc(var(--score2) * 1%)}.m3{left:calc(var(--score3) * 1%)}
+    .axis-label{position:absolute;top:112px;color:#94aab3;font-size:22px}.start{left:0}.end{right:0}.footer{position:absolute;left:162px;top:1330px;width:756px;color:#91a7b1;font-size:23px;border-top:2px solid #344b55;padding-top:22px}
+  </style>
+</head>
+<body>
+  <div id="root" data-composition-id="three-item-spectrum" data-start="0" data-duration="7" data-width="1080" data-height="1920">
+    <section id="three-item-spectrum-scene" class="clip" data-start="0" data-duration="7" data-track-index="1"><div class="stage">
+      <div class="head"><div class="kicker" data-var-text="kicker">COMPARE / SPECTRUM</div><h1><span data-var-text="title">三项内容</span><b data-var-text="highlightTitle">放在同一尺度上比较</b></h1></div>
+      <div class="cards"><div class="card"><i class="index">ITEM 01</i><b data-var-text="item1">项目 A</b><span data-var-text="note1">更接近左端</span></div><div class="card featured"><i class="index">ITEM 02</i><b data-var-text="item2">项目 B</b><span data-var-text="note2">位于中间</span></div><div class="card"><i class="index">ITEM 03</i><b data-var-text="item3">项目 C</b><span data-var-text="note3">更接近右端</span></div></div>
+      <div class="spectrum"><div class="axis"></div><i class="marker m1"></i><i class="marker m2"></i><i class="marker m3"></i><span class="axis-label start" data-var-text="axisStart">左端倾向</span><span class="axis-label end" data-var-text="axisEnd">右端倾向</span></div>
+      <div class="footer" data-var-text="footer">适用：三项内容在同一连续尺度上的位置比较</div>
+    </div></section>
+  </div>
+  <script src="assets/gsap.min.js"></script>
+  <script>
+    const tl=gsap.timeline({paused:true});
+    tl.from(".kicker",{y:-24,opacity:0,duration:.4,ease:"power3.out"},.08)
+      .from("h1",{x:-60,opacity:0,duration:.62,ease:"power4.out"},.2)
+      .from(".card",{y:75,opacity:0,duration:.52,stagger:.16,ease:"power3.out"},.68)
+      .from(".axis",{scaleX:0,duration:.75,ease:"power2.inOut"},1.35)
+      .from(".marker",{scale:.15,opacity:0,duration:.38,stagger:.16,ease:"back.out(1.8)"},1.72)
+      .from(".axis-label",{y:18,opacity:0,duration:.4,stagger:.12,ease:"power2.out"},2.2)
+      .from(".footer",{y:24,opacity:0,duration:.45,ease:"power2.out"},2.62)
+      .to(".featured",{scale:1.025,duration:.5,ease:"power1.inOut"},3.05);
+    window.__timelines=window.__timelines||{};window.__timelines["three-item-spectrum"]=tl;
+  </script>
+</body>
+</html>

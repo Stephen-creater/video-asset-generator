@@ -1,0 +1,18 @@
+{
+  "kicker": "COMPARE / SPECTRUM",
+  "title": "三种方案",
+  "highlightTitle": "在同一尺度上的位置",
+  "item1": "方案 A",
+  "note1": "更偏效率",
+  "item2": "方案 B",
+  "note2": "兼顾两端",
+  "item3": "方案 C",
+  "note3": "更偏体验",
+  "score1": 22,
+  "score2": 56,
+  "score3": 82,
+  "axisStart": "效率优先",
+  "axisEnd": "体验优先",
+  "footer": "适用：三项内容在同一连续尺度上的位置比较",
+  "accent": "#f1b84b"
+}

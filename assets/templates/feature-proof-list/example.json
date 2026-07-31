@@ -1,0 +1,14 @@
+{
+  "kicker": "PRODUCT / PROOF",
+  "product": "PROJECT NOVA",
+  "meta": "OPEN SOURCE · PYTHON",
+  "title": "关键能力已经落地",
+  "feature1": "多模型适配",
+  "feature2": "自动化执行",
+  "feature3": "数据分析",
+  "feature4": "工具调用",
+  "feature5": "本地部署",
+  "badge": "真实代码",
+  "footer": "适用：新产品、新模型、开源项目的功能证明",
+  "accent": "#68df8d"
+}

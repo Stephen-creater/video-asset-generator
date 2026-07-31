@@ -1,0 +1,21 @@
+<!doctype html>
+<html lang="zh-CN" data-composition-variables='[
+  {"id":"kicker","type":"string","label":"眉题","default":"SCALE / CAPACITY"},
+  {"id":"title","type":"string","label":"标题","default":"规模不只体现在数字"},
+  {"id":"metricValue","type":"string","label":"核心数字","default":"8,192"},
+  {"id":"metricUnit","type":"string","label":"数字单位","default":"个并行单元"},
+  {"id":"cellCount","type":"number","label":"矩阵单元数","default":80,"min":12,"max":96,"step":1},
+  {"id":"footer","type":"string","label":"底部说明","default":"适用：算力规模、设备数量、用户容量、并发单元"},
+  {"id":"accent","type":"color","label":"强调色","default":"#66e5ef"}
+]'>
+<head><meta charset="UTF-8"><meta name="viewport" content="width=1080,height=1920"><title>规模矩阵</title><style>
+@font-face{font-family:"Alibaba PuHuiTi";src:url("assets/fonts/AlibabaPuHuiTi-3-Regular.otf");font-weight:400}@font-face{font-family:"Alibaba PuHuiTi";src:url("assets/fonts/AlibabaPuHuiTi-3-Bold.otf");font-weight:700}
+*{box-sizing:border-box}html,body{margin:0;width:1080px;height:1920px;overflow:hidden;background:#071118;font-family:"Alibaba PuHuiTi",sans-serif}#root,.clip,.stage{position:absolute;inset:0;width:1080px;height:1920px;overflow:hidden}.stage{color:#f7fbff;background:radial-gradient(circle at 50% 58%,#17313b,#071118 60%)}
+.head{position:absolute;left:162px;top:240px;width:756px}.kicker{color:var(--accent);font-size:22px;font-weight:700;letter-spacing:5px}h1{margin:28px 0 0;font-size:67px;line-height:1.08}.metric{position:absolute;left:162px;top:515px;width:756px}.metric b{display:block;font-size:132px;line-height:1;color:var(--accent)}.metric span{display:block;margin-top:26px;font-size:29px;color:#a9bac1}
+.grid{position:absolute;left:162px;top:760px;width:756px;display:grid;grid-template-columns:repeat(10,1fr);gap:13px}.cell{height:54px;border-radius:10px;background:linear-gradient(180deg,#7cf4f4,#2aa7b7);box-shadow:0 10px 22px #0007,0 0 16px #66e5ef30}.footer{position:absolute;left:162px;top:1370px;width:756px;border-top:2px solid #38515b;padding-top:24px;color:#91a7b1;font-size:23px}
+</style></head><body>
+<div id="root" data-composition-id="scale-grid" data-start="0" data-duration="7" data-width="1080" data-height="1920"><section id="scale-grid-scene" class="clip" data-start="0" data-duration="7" data-track-index="1"><div class="stage"><div class="head"><div class="kicker" data-var-text="kicker">SCALE / CAPACITY</div><h1 data-var-text="title">规模不只体现在数字</h1></div><div class="metric"><b data-var-text="metricValue">8,192</b><span data-var-text="metricUnit">个并行单元</span></div><div class="grid"></div><div class="footer" data-var-text="footer">适用：算力规模、设备数量、用户容量、并发单元</div></div></section></div>
+<script src="assets/gsap.min.js"></script><script>
+const values=window.__hyperframes.getVariables();const grid=document.querySelector(".grid");for(let i=0;i<values.cellCount;i+=1){const cell=document.createElement("i");cell.className="cell";grid.appendChild(cell)}
+const tl=gsap.timeline({paused:true});tl.from(".kicker,h1",{y:42,opacity:0,duration:.52,stagger:.12,ease:"power3.out"},.08).from(".metric",{x:-65,opacity:0,duration:.6,ease:"power4.out"},.55).from(".cell",{scale:.25,opacity:0,duration:.32,stagger:.025,ease:"back.out(1.6)"},1.05).from(".footer",{y:22,opacity:0,duration:.42,ease:"power2.out"},3.2);window.__timelines=window.__timelines||{};window.__timelines["scale-grid"]=tl;
+</script></body></html>
