@@ -1,0 +1,71 @@
+<!doctype html>
+<html lang="zh-CN" data-composition-variables='[
+  {"id":"kicker","type":"string","label":"眉题","default":"STRATEGY / PRIORITY"},
+  {"id":"title","type":"string","label":"标题上行","default":"选择之前"},
+  {"id":"highlightTitle","type":"string","label":"标题强调行","default":"先确定什么不能丢"},
+  {"id":"priority1","type":"string","label":"优先级一","default":"基础收益"},
+  {"id":"note1","type":"string","label":"优先级一说明","default":"维持基本运行"},
+  {"id":"priority2","type":"string","label":"优先级二","default":"核心团队"},
+  {"id":"note2","type":"string","label":"优先级二说明","default":"保留关键能力"},
+  {"id":"priority3","type":"string","label":"优先级三","default":"长期方向"},
+  {"id":"note3","type":"string","label":"优先级三说明","default":"决定未来位置"},
+  {"id":"footer","type":"string","label":"底部说明","default":"适用：战略排序、核心利益、资源优先级"},
+  {"id":"color1","type":"color","label":"一级颜色","default":"#55d9df"},
+  {"id":"color2","type":"color","label":"二级颜色","default":"#9a82ef"},
+  {"id":"color3","type":"color","label":"三级颜色","default":"#f3c55c"}
+]'>
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=1080,height=1920">
+  <title>优先级支柱</title>
+  <style>
+    @font-face{font-family:"Alibaba PuHuiTi";src:url("assets/fonts/AlibabaPuHuiTi-3-Regular.otf");font-weight:400}
+    @font-face{font-family:"Alibaba PuHuiTi";src:url("assets/fonts/AlibabaPuHuiTi-3-Bold.otf");font-weight:700}
+    *{box-sizing:border-box}
+    html,body{margin:0;width:1080px;height:1920px;overflow:hidden;background:#071118;font-family:"Alibaba PuHuiTi",sans-serif}
+    #root,.clip,.stage{position:absolute;inset:0;width:1080px;height:1920px;overflow:hidden}
+    .stage{color:#f7fbff;background:radial-gradient(circle at 50% 66%,#17303a,#071118 62%)}
+    .content{position:absolute;left:162px;top:240px;width:756px}
+    .kicker{color:var(--color1);font-size:22px;font-weight:700;letter-spacing:5px}
+    h1{position:relative;margin:30px 0 0;width:756px;height:190px;font-size:74px;line-height:1}h1 span,h1 b{position:absolute;left:0;width:756px;height:80px;display:block}h1 span{top:0}h1 b{top:98px;color:var(--color3)}
+    .pillars{position:absolute;left:132px;top:620px;width:816px;height:640px;display:flex;align-items:flex-end;gap:28px;border-bottom:5px solid #30414b}
+    .pillar{position:relative;width:253px;border-radius:28px 28px 0 0;padding:32px 26px;color:#071118;transform-origin:bottom;box-shadow:0 28px 60px #0006}
+    .p1{height:300px;background:linear-gradient(180deg,color-mix(in srgb,var(--color1) 80%,white),var(--color1))}
+    .p2{height:420px;background:linear-gradient(180deg,color-mix(in srgb,var(--color2) 80%,white),var(--color2))}
+    .p3{height:560px;background:linear-gradient(180deg,color-mix(in srgb,var(--color3) 80%,white),var(--color3))}
+    .rank{font-size:20px;font-weight:700;letter-spacing:3px}.pillar b{display:block;margin-top:26px;font-size:36px;line-height:1.15}.pillar span{display:block;margin-top:18px;font-size:22px;line-height:1.35}
+    .footer{position:absolute;left:162px;top:1345px;width:756px;color:#91a7b1;font-size:23px}
+  </style>
+</head>
+<body>
+  <div id="root" data-composition-id="priority-pillars" data-start="0" data-duration="7" data-width="1080" data-height="1920">
+    <section id="priority-pillars-scene" class="clip" data-start="0" data-duration="7" data-track-index="1">
+      <div class="stage">
+        <div class="content">
+          <div class="kicker" data-var-text="kicker">STRATEGY / PRIORITY</div>
+          <h1><span data-var-text="title">选择之前</span><b data-var-text="highlightTitle">先确定什么不能丢</b></h1>
+        </div>
+        <div class="pillars">
+          <div class="pillar p1"><div class="rank">PRIORITY 03</div><b data-var-text="priority1">基础收益</b><span data-var-text="note1">维持基本运行</span></div>
+          <div class="pillar p2"><div class="rank">PRIORITY 02</div><b data-var-text="priority2">核心团队</b><span data-var-text="note2">保留关键能力</span></div>
+          <div class="pillar p3"><div class="rank">PRIORITY 01</div><b data-var-text="priority3">长期方向</b><span data-var-text="note3">决定未来位置</span></div>
+        </div>
+        <div class="footer" data-var-text="footer">适用：战略排序、核心利益、资源优先级</div>
+      </div>
+    </section>
+  </div>
+  <script src="assets/gsap.min.js"></script>
+  <script>
+    const tl=gsap.timeline({paused:true});
+    tl.from(".kicker",{y:-24,opacity:0,duration:.45,ease:"power3.out"},.08)
+      .from("h1",{x:-70,opacity:0,duration:.65,ease:"power4.out"},.2)
+      .from(".pillars",{opacity:0,duration:.4,ease:"power2.out"},.6)
+      .from(".pillar",{scaleY:.08,opacity:0,duration:.72,stagger:.22,ease:"power3.out"},.76)
+      .from(".pillar .rank,.pillar b,.pillar span",{y:28,opacity:0,duration:.42,stagger:.08,ease:"power2.out"},1.45)
+      .from(".footer",{y:28,opacity:0,duration:.48,ease:"power2.out"},2.15)
+      .to(".p3",{scale:1.025,duration:.42,ease:"back.out(1.5)"},2.32);
+    window.__timelines=window.__timelines||{};
+    window.__timelines["priority-pillars"]=tl;
+  </script>
+</body>
+</html>

@@ -1,0 +1,71 @@
+<!doctype html>
+<html lang="zh-CN" data-composition-variables='[
+  {"id":"kicker","type":"string","label":"眉题","default":"PATH / LOCK-IN"},
+  {"id":"title","type":"string","label":"标题上行","default":"一种结构持续固化"},
+  {"id":"highlightTitle","type":"string","label":"标题强调行","default":"最终锁死选择空间"},
+  {"id":"lockLabel","type":"string","label":"锁定标签","default":"LOCKED"},
+  {"id":"detail","type":"string","label":"原因说明","default":"资源、流程与承诺都围绕旧路径运转"},
+  {"id":"footer","type":"string","label":"底部说明","default":"适用：路径依赖、技术债、组织惯性与生态锁定"},
+  {"id":"accent","type":"color","label":"强调色","default":"#ffc46c"}
+]'>
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=1080,height=1920">
+  <title>路径锁死</title>
+  <style>
+    @font-face{font-family:"Alibaba PuHuiTi";src:url("assets/fonts/AlibabaPuHuiTi-3-Regular.otf");font-weight:400}
+    @font-face{font-family:"Alibaba PuHuiTi";src:url("assets/fonts/AlibabaPuHuiTi-3-Bold.otf");font-weight:700}
+    *{box-sizing:border-box}
+    html,body{margin:0;width:1080px;height:1920px;overflow:hidden;background:#071016;font-family:"Alibaba PuHuiTi",sans-serif}
+    #root,.clip,.stage{position:absolute;inset:0;width:1080px;height:1920px;overflow:hidden}
+    .stage{color:#f7fbff;background:radial-gradient(circle at 50% 58%,color-mix(in srgb,var(--accent) 13%,#0d1820),#071016 58%)}
+    .content{position:absolute;left:162px;top:240px;width:756px}
+    .kicker{color:var(--accent);font-size:22px;font-weight:700;letter-spacing:5px}
+    h1{position:relative;margin:30px 0 0;width:756px;height:190px;font-size:73px;line-height:1}h1 span,h1 b{position:absolute;left:0;width:756px;height:78px;display:block}h1 span{top:0}h1 b{top:96px;color:var(--accent)}
+    .lock-card{position:absolute;left:162px;top:610px;width:756px;height:590px;border:2px solid color-mix(in srgb,var(--accent) 25%,#23313a);border-radius:42px;background:#0a141bdd;box-shadow:0 35px 100px #0008}
+    .lock{position:absolute;left:178px;top:70px;width:400px;height:390px}
+    .shackle{position:absolute;left:85px;top:0;width:230px;height:195px;border:36px solid var(--accent);border-bottom:0;border-radius:130px 130px 0 0}
+    .body{position:absolute;left:5px;top:165px;width:390px;height:235px;border-radius:30px;background:linear-gradient(145deg,color-mix(in srgb,var(--accent) 92%,white),color-mix(in srgb,var(--accent) 58%,#6a3b15));box-shadow:0 20px 60px color-mix(in srgb,var(--accent) 28%,transparent);color:#3c250e}
+    .lock-text{position:absolute;left:0;top:35px;width:390px;text-align:center;font-size:32px;font-weight:700;letter-spacing:5px}
+    .keyhole{position:absolute;left:184px;top:270px;width:32px;height:82px;background:#3c250e;clip-path:polygon(50% 0,88% 32%,72% 100%,28% 100%,12% 32%)}
+    .detail{position:absolute;left:70px;bottom:38px;width:616px;text-align:center;color:#c7d2d7;font-size:24px;line-height:1.45}
+    .footer{position:absolute;left:162px;top:1310px;width:756px;border-top:3px solid var(--accent);padding-top:24px;color:#91a3ac;font-size:23px}
+  </style>
+</head>
+<body>
+  <div id="root" data-composition-id="lock-in-risk" data-start="0" data-duration="7" data-width="1080" data-height="1920">
+    <section id="lock-in-risk-scene" class="clip" data-start="0" data-duration="7" data-track-index="1">
+      <div class="stage">
+        <div class="content">
+          <div class="kicker" data-var-text="kicker">PATH / LOCK-IN</div>
+          <h1><span data-var-text="title">一种结构持续固化</span><b data-var-text="highlightTitle">最终锁死选择空间</b></h1>
+        </div>
+        <div class="lock-card">
+          <div class="lock">
+            <div class="shackle"></div>
+            <div class="body"><span class="lock-text" data-var-text="lockLabel">LOCKED</span></div>
+            <div class="keyhole"></div>
+          </div>
+          <div class="detail" data-var-text="detail">资源、流程与承诺都围绕旧路径运转</div>
+        </div>
+        <div class="footer" data-var-text="footer">适用：路径依赖、技术债、组织惯性与生态锁定</div>
+      </div>
+    </section>
+  </div>
+  <script src="assets/gsap.min.js"></script>
+  <script>
+    const tl=gsap.timeline({paused:true});
+    tl.from(".kicker",{y:-24,opacity:0,duration:.45,ease:"power3.out"},.08)
+      .from("h1",{x:-70,opacity:0,duration:.65,ease:"power4.out"},.2)
+      .from(".lock-card",{scale:.86,opacity:0,duration:.65,ease:"expo.out"},.62)
+      .from(".body",{y:90,opacity:0,duration:.62,ease:"power3.out"},.92)
+      .from(".shackle",{y:-130,opacity:0,duration:.68,ease:"power3.out"},1.04)
+      .to(".shackle",{y:38,duration:.42,ease:"bounce.out"},1.75)
+      .from(".keyhole",{scale:.2,opacity:0,duration:.36,ease:"back.out(1.7)"},1.82)
+      .from(".detail",{y:30,opacity:0,duration:.48,ease:"power2.out"},2.03)
+      .from(".footer",{scaleX:0,transformOrigin:"left",opacity:0,duration:.5,ease:"power2.out"},2.2);
+    window.__timelines=window.__timelines||{};
+    window.__timelines["lock-in-risk"]=tl;
+  </script>
+</body>
+</html>

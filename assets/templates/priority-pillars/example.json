@@ -1,0 +1,15 @@
+{
+  "kicker": "STRATEGY / PRIORITY",
+  "title": "资源有限时",
+  "highlightTitle": "先守住最重要的三件事",
+  "priority1": "短期结果",
+  "note1": "维持基本运行",
+  "priority2": "团队稳定",
+  "note2": "保留核心能力",
+  "priority3": "长期主线",
+  "note3": "决定未来位置",
+  "footer": "适用：战略排序、核心利益、资源优先级",
+  "color1": "#55d9df",
+  "color2": "#9a82ef",
+  "color3": "#f3c55c"
+}
