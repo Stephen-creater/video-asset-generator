@@ -24,7 +24,7 @@
     .stage{color:#f4f5f7;background:radial-gradient(circle at 50% 60%,#162334,#06080d 66%)}
     .scene{position:absolute;left:145px;top:230px;width:790px;height:1130px}
     .kicker{color:var(--accent);font-size:22px;font-weight:700;letter-spacing:5px}
-    h1{margin:30px 0 0;font-size:73px;line-height:1.08}h1 b{display:block;color:var(--accent)}
+    h1{margin:30px 0 0;font-size:73px;line-height:1.25}h1 span,h1 b{display:block}h1 b{color:var(--accent)}
     .table{position:absolute;left:0;top:380px;width:790px;height:610px;border:5px solid #344052;border-radius:50%;background:radial-gradient(ellipse,#182333,#080b10 72%);box-shadow:inset 0 0 90px #000}
     .player{position:absolute;width:210px;height:285px;border:5px solid;border-radius:28px;background:#101620;display:grid;place-items:center;text-align:center;font-size:37px;font-weight:700}
     .p1{left:80px;top:145px;border-color:#8d98a6;transform:rotate(-8deg)}.p2{left:290px;top:110px;border-color:#66717f}.p3{left:500px;top:145px;border-color:#a95b91;transform:rotate(8deg)}
@@ -55,7 +55,7 @@
       .from("h1",{y:55,opacity:0,duration:.62,ease:"power3.out"},.2)
       .from(".table",{scale:.6,opacity:0,duration:.72,ease:"expo.out"},.58)
       .from(".p1,.p2,.p3",{y:-120,opacity:0,duration:.58,stagger:.12,ease:"power3.out"},.92)
-      .from(".p4",{y:280,scale:.65,opacity:0,duration:.72,ease:"back.out(1.6)"},1.45)
+      .from(".p4",{scale:.35,duration:.72,ease:"back.out(1.6)"},1.45)
       .to(".p1",{x:-28,duration:.5,ease:"power3.inOut"},2.02)
       .to(".p3",{x:28,duration:.5,ease:"power3.inOut"},2.02)
       .from(".footer",{scaleX:0,transformOrigin:"left",duration:.55,ease:"power2.out"},2.25);

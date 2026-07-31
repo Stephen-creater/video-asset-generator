@@ -141,6 +141,8 @@ npx hyperframes render . \
 
 模板不包含字体、GSAP 或业务素材；项目必须提供 `assets/fonts/`、固定版本的 `assets/gsap.min.js` 和需要的 `assets/images/`。
 
+模板省去从零搭建布局和动画，但不省略选型、真实素材核验、预检、渲染和抽帧验收；固定耗时需用全新脚本实测。
+
 复用示例见 [`examples/ai-content-template-test/`](examples/ai-content-template-test/)。
 
 ## 工具脚本
@@ -205,7 +207,7 @@ python3 scripts/srt_convert.py timestamps.txt -o output.srt
 当前 `.skill` 包的 SHA-256：
 
 ```text
-b2319911138834fccad04e1636d93ad59c35b578f68e33069776cee2a6bb69bb
+91d2ab69b25a010e9305b906dc3bef2bc1fee4b2ec163b7fc17490f9050e57b5
 ```
 
 可运行以下命令核验：

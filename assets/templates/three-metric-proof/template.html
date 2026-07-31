@@ -27,12 +27,12 @@
     .stage{color:#f4f5f7;background:radial-gradient(circle at 80% 17%,color-mix(in srgb,var(--secondaryColor2) 15%,transparent),transparent 34%),linear-gradient(180deg,#0d131c,#06080d)}
     .scene{position:absolute;left:135px;top:225px;width:810px;height:1130px}
     .kicker{color:var(--secondaryColor2);font-size:22px;font-weight:700;letter-spacing:5px}
-    h1{margin:30px 0 0;font-size:73px;line-height:1.08}h1 b{display:block;color:var(--secondaryColor1)}
+    h1{margin:30px 0 0;font-size:73px;line-height:1.25}h1 span,h1 b{display:block}h1 b{color:var(--secondaryColor1)}
     .metric{position:absolute;border:4px solid;border-radius:32px;background:#0c121be8;padding:38px}
     .num{display:block;font-weight:700;line-height:1}.label{display:block;margin-top:20px;color:#c4cbd4;font-size:27px;letter-spacing:2px}
     .m1{left:0;top:360px;width:810px;height:255px;border-color:var(--primaryColor)}.m1 .num{color:var(--primaryColor);font-size:126px}
-    .m2{left:0;top:655px;width:385px;height:270px;border-color:var(--secondaryColor1)}.m2 .num{color:var(--secondaryColor1);font-size:98px}
-    .m3{right:0;top:655px;width:385px;height:270px;border-color:var(--secondaryColor2)}.m3 .num{color:var(--secondaryColor2);font-size:90px}
+    .m2{left:0;top:655px;width:385px;height:290px;border-color:var(--secondaryColor1)}.m2 .num{color:var(--secondaryColor1);font-size:98px}
+    .m3{right:0;top:655px;width:385px;height:290px;border-color:var(--secondaryColor2)}.m3 .num{color:var(--secondaryColor2);font-size:90px}
     .ruler{position:absolute;left:0;top:985px;width:810px;height:16px;display:flex;gap:10px}.ruler i{height:6px;flex:1;background:#566170}.ruler i:nth-child(-n+8){background:var(--secondaryColor1)}
     .source{position:absolute;left:0;top:1030px;color:#9aa3af;font-size:24px}
   </style>
@@ -57,10 +57,10 @@
     tl.from(".kicker",{y:-24,opacity:0,duration:.45,ease:"power3.out"},.08)
       .from("h1",{x:-75,opacity:0,duration:.62,ease:"power4.out"},.2)
       .from(".m1",{scale:.75,opacity:0,duration:.65,ease:"expo.out"},.62)
-      .from(".m1 .num",{scale:1.35,opacity:0,duration:.45,ease:"back.out(1.4)"},.95)
+      .from(".m1 .num",{scale:.78,transformOrigin:"top left",duration:.45,ease:"back.out(1.4)"},.95)
       .from(".m2",{x:-120,opacity:0,duration:.58,ease:"power3.out"},1.25)
       .from(".m3",{x:120,opacity:0,duration:.58,ease:"power3.out"},1.25)
-      .from(".m2 .num,.m3 .num",{y:45,opacity:0,duration:.48,stagger:.12,ease:"power2.out"},1.62)
+      .from(".m2 .num,.m3 .num",{scale:.72,transformOrigin:"top left",duration:.48,stagger:.12,ease:"power2.out"},1.62)
       .from(".ruler i",{scaleX:0,transformOrigin:"left",duration:.25,stagger:.05,ease:"power1.out"},2.05)
       .from(".source",{y:30,opacity:0,duration:.45,ease:"power2.out"},2.35);
     window.__timelines=window.__timelines||{};
